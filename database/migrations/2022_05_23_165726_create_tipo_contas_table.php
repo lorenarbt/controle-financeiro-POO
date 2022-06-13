@@ -14,7 +14,7 @@ class CreateTipoContasTable extends Migration
     public function up()
     {
         Schema::create('tipo_contas', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('desc');
             $table->timestamps();
         });

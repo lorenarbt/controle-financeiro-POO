@@ -14,9 +14,14 @@ class CreateDespesasTable extends Migration
     public function up()
     {
         Schema::create('despesas', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('usuarios');
+            $table->string('desc');
+            $table->timestamp('ini_month')->nullable();
+            $table->unsignedInteger('deadline');
+            $table->foreign('deadline')->references('id')->on('prazos');
+            $table->double('value',8,2);
             $table->timestamps();
         });
     }

@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoConta extends Model
 {
-    //
+    protected $fillable = [
+        'id',
+        'desc'
+
+    ];
 }

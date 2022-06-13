@@ -10,9 +10,9 @@ class Banco extends Model
     protected $fillable = [
         'id',
         'user_id',
-        'nome',
-        'tipo',
-        'saldo',
+        'desc',
+        'balance',
+        'type',
 
     ];
 }

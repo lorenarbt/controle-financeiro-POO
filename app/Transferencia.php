@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Despesa extends Model
+class Transferencia extends Model
 {
     protected $fillable = [
         'id',
         'user_id',
-        'desc',
+        'bank_id',
+        'value',
         'ini_month',
-        'deadline',
-        'value'
-        
+        'method',
+        'receiver'
     ];
 }

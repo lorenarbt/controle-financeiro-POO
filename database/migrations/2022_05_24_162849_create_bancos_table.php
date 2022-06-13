@@ -14,13 +14,13 @@ class CreateBancosTable extends Migration
     public function up()
     {
         Schema::create('bancos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('usuarios');
-            $table->unsignedInteger('tipo');
-            $table->foreign('tipo')->references('id')->on('tipo_contas');
-            $table->string('name');
-            $table->double('saldo',8,2);
+            $table->string('desc');
+            $table->double('balance',8,2);
+            $table->unsignedInteger('type');
+            $table->foreign('type')->references('id')->on('tipo_contas');
             $table->timestamps();
         });
     }

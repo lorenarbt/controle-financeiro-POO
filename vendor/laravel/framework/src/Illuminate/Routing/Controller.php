@@ -3,6 +3,7 @@
 namespace Illuminate\Routing;
 
 use BadMethodCallException;
+use Illuminate\Http\Request;
 
 abstract class Controller
 {
@@ -69,4 +70,11 @@ abstract class Controller
             'Method %s::%s does not exist.', static::class, $method
         ));
     }
+
+    // -- métodos abstratos para CRUD (Create - Read - Update - Delete) --
+    abstract protected function checkLogin();
+    abstract protected function insert(Request $req);
+    abstract protected function search(Request $req);
+    abstract protected function update(Request $req);
+    abstract protected function delete(Request $req);
 }

@@ -8,7 +8,9 @@ class Renda extends Model
 {
     protected $fillable = [
         'id',
-        'desc'
+        'user_id',
+        'desc',
+        'value'
 
     ];
 }

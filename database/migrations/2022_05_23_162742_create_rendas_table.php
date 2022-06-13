@@ -14,7 +14,11 @@ class CreateRendasTable extends Migration
     public function up()
     {
         Schema::create('rendas', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('usuarios');
+            $table->string('desc');
+            $table->double('value',8,2);
             $table->timestamps();
         });
     }
