@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class DespesasRendasController extends Controller
 {
     public function despesasRendas(){
-        echo 'Despesas e Rendas';
+        return view ('site.despesas-renda');
     }
 }

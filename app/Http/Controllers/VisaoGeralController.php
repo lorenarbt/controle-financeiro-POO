@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class VisaoGeralController extends Controller
 {
     public function visaoGeral(){
-        echo 'Visão geral';
+        return view ('site.visao-geral');
     }
 }
