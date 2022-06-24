@@ -35,34 +35,46 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Crie uma conta!</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" action="{{route('cadastro.auth')}}" method="POST">
+                                @csrf
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input type="text" class="form-control form-control-user" id="InputFirstName" name="firstName"
                                             placeholder="Primeiro Nome">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input type="text" class="form-control form-control-user" id="InputLastName" name="lastName"
                                             placeholder="Último Nome">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" class="form-control form-control-user" id="InputEmail" name="email"
                                         placeholder="Endereço de Email">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Senha">
+                                        <input type="password" class="form-control form-control-user" name="inputPassword"
+                                            id="InputPassword" placeholder="Senha">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repita a senha">
+                                            id="InputRepeatPassword" name="repeatPassword" placeholder="Repita a senha">
                                     </div>
                                 </div>
-                                <a href="login" class="btn btn-primary btn-user btn-block">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" name="cpf"
+                                            id="InputCPF" placeholder="000.000.000-00">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user"
+                                            id="InputTelephone" name="tel" placeholder="(00) 00000-0000">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">Registrar Conta</button>
+                                {{-- <a href="{{route('cadastro.auth')}}" class="btn btn-primary btn-user btn-block">
                                     Registrar Conta
-                                </a>
+                                </a> --}}
                                 <hr>
                                 <!-- {{-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google

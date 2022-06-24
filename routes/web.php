@@ -26,7 +26,7 @@ Route::get('/', 'PrincipalController@index')->name('index');
     // view de cadastro
     Route::get('/cadastro', 'UsuarioController@viewCadastro')->name('cadastro');
     // função de cadastro
-    Route::get('/cadastro/auth', 'UsuarioController@cadastro')->name('cadastro');
+    Route::post('/cadastro/auth', 'UsuarioController@createCadastro')->name('cadastro.auth');
 
 Route::prefix('/user')->group(function() {
     // dashboard geral dos dados
