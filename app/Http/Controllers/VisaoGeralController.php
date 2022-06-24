@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Despesa;
+use App\Renda;
 
 class VisaoGeralController extends Controller
 {
     public function visaoGeral(){
-        return view ('site.index');
+        $despesas = Despesa::all();
+        $rendas = Renda::all();
+
+        return view('site.index',compact('despesas','rendas'));
     }
 }
