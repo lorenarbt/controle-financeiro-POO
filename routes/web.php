@@ -14,69 +14,71 @@ use Illuminate\Support\Facades\Route;
 */
 
 // view inicial a ser carregada
-Route::get('/', 'PrincipalController@index')->name('site.index');
+Route::get('/', 'PrincipalController@index')->name('index');
 
 // login
     // view de login
-    Route::get('/login', 'LoginController@login')->name('site.login');
+    Route::get('/login', 'UsuarioController@viewLogin')->name('login');
     // função de login
-    // Route::get('/login', 'LoginController@login')->name('site.login');
+    Route::get('/login/auth', 'UsuarioController@login')->name('login.auth');
 
 // cadastro
     // view de cadastro
-    Route::get('/cadastro', 'CadastroController@cadastro')->name('site.cadastro');
+    Route::get('/cadastro', 'UsuarioController@viewCadastro')->name('cadastro');
     // função de cadastro
-    // Route::get('/cadastro', 'CadastroController@cadastro')->name('site.cadastro');
-
+    Route::get('/cadastro/auth', 'UsuarioController@cadastro')->name('cadastro');
 
 Route::prefix('/user')->group(function() {
     // dashboard geral dos dados
-    Route::get('/visao-geral', 'VisaoGeralController@visaoGeral')->name('user.visaogeral');
+    Route::get('/visao-geral', 'VisaoGeralController@viewVisaoGeral')->name('user.visaogeral');
 
     // perfil
-    Route::get('/perfil', 'PerfilController@perfil')->name('user.perfil');
+    Route::get('/perfil', 'PerfilController@viewPerfil')->name('user.perfil');
 
     // configurações
-    Route::get('/configuracoes', 'ConfiguracoesController@configuracoes')->name('user.configuracoes');
+    Route::get('/configuracoes', 'ConfiguracoesController@viewConfiguracoes')->name('user.configuracoes');
 
     // dashboard de despesas e rendas
-    Route::get('/despesas-renda', 'DespesasRendasController@despesasRendas')->name('user.despesas-rendas');
+    Route::get('/despesas-rendas', 'DespesasRendasController@viewDespesasRendas')->name('user.despesas-rendas');
 
     // despesas
         // view de inserção de despesa
-        Route::get('/view-create-despesa','DespesasRendasController@viewCreateDesp')->name('user.despesa');
+        Route::get('/create-despesa','DespesasRendasController@createDesp')->name('user.create.despesa');
 
         // view de edição de despesa
-        Route::get('/view-edit-despesa', 'DespesasRendasController@viewEditDesp')->name('user.despesa');
+        Route::get('/edit-despesa/{id}', 'DespesasRendasController@editDesp')->name('user.edit.despesa');
 
         // função de inserção de despesa
-        Route::post('/create_desp', 'DespesasRendasController@createDesp')->name('user.create.despesa');
+        Route::post('/insert-desp', 'DespesasRendasController@insertDesp')->name('user.insert.despesa');
 
         // função de edição de despesa
-        Route::put('/edit_desp', 'DespesasRendasController@editDesp')->name('user.edit.despesa');
+        Route::put('/update-desp/{id}', 'DespesasRendasController@updateDesp')->name('user.update.despesa');
 
         // função de deleção de despesa
-        Route::put('/delete_desp', 'DespesasRendasController@deleteDesp')->name('user.delete.despesa');
+        Route::get('/delete-desp/{id}', 'DespesasRendasController@deleteDesp')->name('user.delete.despesa');
 
     // rendas
         // view de inserção de renda
-        Route::get('/view-create-renda', 'DespesasRendasController@viewCreateRend')->name('user.renda');
+        Route::get('/create-renda', 'DespesasRendasController@createRend')->name('user.create.renda');
 
         // view de edição de renda
-        Route::get('/view-edit-renda', 'DespesasRendasController@viewEditRend')->name('user.renda');
+        Route::get('/edit-renda/{id}', 'DespesasRendasController@editRend')->name('user.edit.renda');
 
         // função de inserção de renda
-        Route::post('/create_rend', 'DespesasRendasController@createRend')->name('user.create.renda');
+        Route::post('/insert-rend', 'DespesasRendasController@insertRend')->name('user.insert.renda');
 
         // função de edição de renda
-        Route::put('/edit_rend', 'DespesasRendasController@editRend')->name('user.edit.renda');
+        Route::put('/update-rend/{id}', 'DespesasRendasController@updateRend')->name('user.update.renda');
 
         // função de deleção de despesa
-        Route::put('/delete_rend', 'DespesasRendasController@deleteRemd')->name('user.delete.rerndar');
+        Route::put('/delete-rend/{id}', 'DespesasRendasController@deleteRend')->name('user.delete.renda');
 
 
     // dashboard dos bancos
-    Route::get('/bancos', 'DespesasRendasController@despesasRendas')->name('user.bancos');
+    Route::get('/bancos', 'DespesasRendasController@bancos')->name('user.bancos');
+
+    // dashboard das transferencias
+    Route::get('/transfer', 'TransferenciasController@transferencias')->name('user.transfer');
 });
 
 

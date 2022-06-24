@@ -18,8 +18,9 @@ class CreateDespesasTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('usuarios');
             $table->string('desc');
-            $table->timestamp('ini_month')->nullable();
-            $table->unsignedInteger('deadline');
+            $table->boolean('fixed');
+            $table->date('ini_month')->nullable();
+            $table->unsignedInteger('deadline')->nullable();
             $table->foreign('deadline')->references('id')->on('prazos');
             $table->double('value',8,2);
             $table->timestamps();

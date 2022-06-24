@@ -31,7 +31,7 @@ class Controller extends BaseController
     protected function checkLogin(){
         if(! $this->checkUserActive())
             return redirect()->route('/');
-    } 
+    }
 
     // -- insere dados na tabela respectiva --
     protected function insert(Request $req){
@@ -55,13 +55,11 @@ class Controller extends BaseController
         }
     }
     // -- busca dados na tabela respectiva --
-    protected function search(Request $req){
+    protected function edit($id){
         $this->checkLogin();
 
         try{
-          $data = $req->all();
-
-          if($this->model::select('*')->where('id',$data['id'])->get()){
+          if($this->model::find($id)){
             return redirect()->back()->with('msg', $this->mensagem(1));
           }
 
@@ -72,7 +70,7 @@ class Controller extends BaseController
         }
     }
     // -- atualiza dados na tabela respectiva --
-    protected function update(Request $req){
+    protected function update(Request $req, $id){
         $this->checkLogin();
 
         try{
@@ -93,13 +91,11 @@ class Controller extends BaseController
         }
     }
     // -- deleta dados na tabela respectiva --
-    protected function delete(Request $req){
+    protected function delete($id){
         $this->checkLogin();
 
         try{
-          $data = $req->all();
-
-          if($this->model::where('id',$data['id'])->delete()){
+          if($this->model::find($id)->delete()){
             return redirect()->back()->with('msg', $this->mensagem(1));
           }
 
@@ -113,6 +109,6 @@ class Controller extends BaseController
             // return redirect()->back()->with('msg', $this->mensagem(3));
         }
     }
-    
+
 
 }

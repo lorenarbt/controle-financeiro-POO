@@ -71,10 +71,10 @@ abstract class Controller
         ));
     }
 
-    // -- métodos abstratos para CRUD (Create - Read - Update - Delete) --
+    // -- métodos abstratos para autenticação (checkLogin) e CRUD (Create - Read - Update - Delete) --
     abstract protected function checkLogin();
     abstract protected function insert(Request $req);
-    abstract protected function search(Request $req);
-    abstract protected function update(Request $req);
-    abstract protected function delete(Request $req);
+    abstract protected function edit($id);
+    abstract protected function update(Request $req,$id);
+    abstract protected function delete($id);
 }

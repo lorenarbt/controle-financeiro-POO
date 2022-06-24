@@ -20,7 +20,7 @@ class CreateTransferenciaTable extends Migration
             $table->unsignedInteger('bank_id');
             $table->foreign('bank_id')->references('id')->on('bancos');
             $table->double('value',8,2);
-            $table->timestamp('ini_month')->nullable();
+            $table->date('ini_month')->nullable();
             $table->unsignedInteger('deadline')->nullable();
             $table->foreign('deadline')->references('id')->on('prazos');
             $table->unsignedInteger('method');

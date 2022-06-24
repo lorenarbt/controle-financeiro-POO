@@ -50,7 +50,42 @@ class PrazosTableSeeder extends Seeder
                 [
                     'desc' => 'parcelado 12x',
                 ],
-
+                [
+                    'desc' => 'parcelado 13x',
+                ],
+                [
+                    'desc' => 'parcelado 14x',
+                ],
+                [
+                    'desc' => 'parcelado 15x',
+                ],
+                [
+                    'desc' => 'parcelado 16x',
+                ],
+                [
+                    'desc' => 'parcelado 17x',
+                ],
+                [
+                    'desc' => 'parcelado 18x',
+                ],
+                [
+                    'desc' => 'parcelado 19x',
+                ],
+                [
+                    'desc' => 'parcelado 20x',
+                ],
+                [
+                    'desc' => 'parcelado 21x',
+                ],
+                [
+                    'desc' => 'parcelado 22x',
+                ],
+                [
+                    'desc' => 'parcelado 23x',
+                ],
+                [
+                    'desc' => 'parcelado 24x',
+                ],
             ]
         );
     }
