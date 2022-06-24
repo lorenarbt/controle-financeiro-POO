@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Despesa;
+use App\Renda;
 use App\Prazo;
 
 class DespesasRendasController extends Controller
 {
     public function despesasRendas(){
-        return view ('site.despesas-renda');
+        $despesas = Despesa::all();
+        $rendas = Renda::all();
+
+        return view ('site.despesas-renda',compact('despesas','rendas'));
     }
 
     public function createDesp(){
@@ -27,6 +31,7 @@ class DespesasRendasController extends Controller
 
     public function insertDesp(Request $req){
         $data = [
+            'user_id' => $req->user_id,
             'desc' => $req->desc,
             'value' => str_replace(',', '.', $req->value),
             'fixed' => (bool)$req->fixed,
@@ -36,11 +41,12 @@ class DespesasRendasController extends Controller
 
         Despesa::create($data);
 
-        return redirect('/user/despesas-rendas');
+        return redirect('user.despesas-rendas');
     }
 
     public function updateDesp(Request $req, $id){
         $data = [
+            'user_id' => $req->user_id,
             'desc' => $req->desc,
             'value' => str_replace(',', '.', $req->value),
             'fixed' => (bool)$req->fixed,
@@ -50,12 +56,12 @@ class DespesasRendasController extends Controller
 
         Despesa::find($id)->update($data);
 
-        return redirect('/user/despesas-rendas');
+        return redirect('user.despesas-rendas');
     }
 
     public function deleteDesp($id){
         Despesa::find($id)->delete();
 
-        return redirect('/user/despesas-rendas');
+        return redirect('user.despesas-rendas');
     }
 }

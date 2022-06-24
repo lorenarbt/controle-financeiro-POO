@@ -18,28 +18,28 @@ Route::get('/', 'PrincipalController@index')->name('index');
 
 // login
     // view de login
-    Route::get('/login', 'UsuarioController@viewLogin')->name('login');
+    Route::get('/login', 'UsuarioController@login')->name('login');
     // função de login
-    Route::get('/login/auth', 'UsuarioController@login')->name('login.auth');
+    Route::get('/login/auth', 'UsuarioController@autenticar')->name('login.auth');
 
 // cadastro
     // view de cadastro
-    Route::get('/cadastro', 'UsuarioController@viewCadastro')->name('cadastro');
-    // função de cadastro
-    Route::post('/cadastro/auth', 'UsuarioController@createCadastro')->name('cadastro.auth');
+    Route::get('/register', 'UsuarioController@cadastro')->name('register');
+    // função de register
+    Route::post('/register/auth', 'UsuarioController@register')->name('register.auth');
 
 Route::prefix('/user')->group(function() {
     // dashboard geral dos dados
-    Route::get('/visao-geral', 'VisaoGeralController@viewVisaoGeral')->name('user.visaogeral');
+    Route::get('/visao-geral', 'VisaoGeralController@visaoGeral')->name('user.visaogeral');
 
     // perfil
     Route::get('/perfil', 'PerfilController@viewPerfil')->name('user.perfil');
 
     // configurações
-    Route::get('/configuracoes', 'ConfiguracoesController@viewConfiguracoes')->name('user.configuracoes');
+    Route::get('/configuracoes', 'ConfiguracoesController@configuracoes')->name('user.configuracoes');
 
     // dashboard de despesas e rendas
-    Route::get('/despesas-rendas', 'DespesasRendasController@viewDespesasRendas')->name('user.despesas-rendas');
+    Route::get('/despesas-rendas', 'DespesasRendasController@despesasRendas')->name('user.despesas-rendas');
 
     // despesas
         // view de inserção de despesa

@@ -8,27 +8,43 @@ use App\Usuario;
 
 class UsuarioController extends Controller
 {
-    public function viewlogin(){
+    public function login(){
         return view('site.login');
     }
 
-    public function viewCadastro(){
+    public function cadastro(){
         return view('site.cadastro');
     }
 
-    public function createCadastro(Request $req){
+    public function register(Request $request){
+        // formatação dos dados que serão registrados
         $data = [
-            'name' => $req->firstName . ' ' . $req->lastName,
-            'email' => $req->email,
-            'password' => bcrypt($req->inputPassword),
-            'cpf' => $req->cpf,
-            'tel' => $req->tel
+            'name' => $request->firstName . ' ' . $request->lastName,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'cpf' => $request->cpf,
+            'tel' => $request->tel
         ];
 
+        // Cadastro do usuário na base de dados
         Usuario::create($data);
 
-        // chamar função pra autenticação automática usando email e password
-        // então redirecionar para visao geral
+        // Redirecionar para função de autenticação com $data como Request e realizar logon
+
+        // Redireciona para visão geral
+        return redirect('/');
+    }
+
+    public function autenticar(Request $request){
+        // Regras de autenticação
+        $rules =  [
+            'email' => 'required|string',
+            'password' => 'required|string',
+        ];
+        dd($rules, $request);
+
+        // Autenticação de dados utilizados para login
+        $request->validate($request,$rules);
 
         return redirect('/');
     }

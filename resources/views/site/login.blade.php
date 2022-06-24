@@ -42,15 +42,15 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bem Vindo!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="{{route('login.auth')}}" method="GET">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Insira o email de acesso...">
+                                                id="InputEmail" aria-describedby="emailHelp"
+                                                placeholder="Insira o email de acesso..." name="email" value="{{old('email')}}">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Senha">
+                                                id="InputPassword" placeholder="Senha" name="password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
