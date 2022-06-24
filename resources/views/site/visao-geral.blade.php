@@ -19,7 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/carousel/style-carousel.css')}}" rel="stylesheet">
+    <!-- <link href="{{asset('css/carousel/style-carousel.css')}}" rel="stylesheet"> -->
 
 
 </head>
@@ -150,11 +150,11 @@
             </div>
 
             <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
+            <!-- <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+            </div> -->
 
         </ul>
         <!-- End of Sidebar -->
@@ -370,7 +370,7 @@
                 <!-- End of Topbar -->
 
                 {{-- Begin Carousel Months --}}
-                <div class="container" style="margin-top:500px; width:auto; margin-left:50%px">
+                <!-- <div class="container" style="margin-top:500px; width:auto; margin-left:50%px">
                     <h2>Meses</h2>
 
                     <div class="carousel--container">
@@ -396,7 +396,7 @@
 
                     </div>
 
-                </div>
+                </div> -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">

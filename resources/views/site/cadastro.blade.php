@@ -60,23 +60,23 @@
                                             id="exampleRepeatPassword" placeholder="Repita a senha">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                <a href="login" class="btn btn-primary btn-user btn-block">
                                     Registrar Conta
                                 </a>
                                 <hr>
-                                {{-- <a href="index.html" class="btn btn-google btn-user btn-block">
+                                <!-- {{-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
                                 </a>
                                 <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                     <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a> --}}
+                                </a> --}} -->
                             </form>
                             {{-- <hr> --}}
-                            <div class="text-center">
+                            <!-- <div class="text-center">
                                 <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
-                            </div>
+                            </div> -->
                             <div class="text-center">
-                                <a class="small" href="login.html">Já possui uma conta? Login!</a>
+                                <a class="small" href="login">Já possui uma conta? Login!</a>
                             </div>
                         </div>
                     </div>
