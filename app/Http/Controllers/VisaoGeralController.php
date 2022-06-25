@@ -12,6 +12,6 @@ class VisaoGeralController extends Controller
         $despesas = Despesa::all();
         $rendas = Renda::all();
 
-        return view('site.index');
+        return view('site.visao-geral',compact('despesas', 'rendas'));
     }
 }

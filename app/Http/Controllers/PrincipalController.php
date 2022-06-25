@@ -9,9 +9,6 @@ use App\Renda;
 class PrincipalController extends Controller
 {
     public function index () {
-        $despesas = Despesa::all();
-        $rendas = Renda::all();
-
         return view('site.index');
     }
 }
