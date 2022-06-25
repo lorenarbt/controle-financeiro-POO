@@ -13,7 +13,7 @@ class DespesasRendasController extends Controller
         $despesas = Despesa::all();
         $rendas = Renda::all();
 
-        return view ('site.despesas-renda',compact('despesas','rendas'));
+        return view ('site.despesas-rendas',compact('despesas','rendas'));
     }
 
     public function createDesp(){

@@ -30,7 +30,7 @@ Route::get('/', 'PrincipalController@index')->name('index');
 
 Route::prefix('/user')->group(function() {
     // dashboard geral dos dados
-    Route::get('/visao-geral', 'VisaoGeralController@visaoGeral')->name('user.visaogeral');
+    Route::get('/visao-geral', 'VisaoGeralController@visaoGeral')->name('user.visao-geral');
 
     // perfil
     Route::get('/perfil', 'PerfilController@viewPerfil')->name('user.perfil');

@@ -40,12 +40,12 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-    
+
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/user/visao-geral">
           <div class="sidebar-brand-icon rotate-n-15">
               <img src="{{asset('img/wallet .png')}}" alt="">
           </div>
@@ -62,7 +62,7 @@
               <span>Visão geral</span></a>
       </li>
       <li class="nav-item active">
-          <a class="nav-link" href="/user/despesas-renda">
+          <a class="nav-link" href="/user/despesas-rendas">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Despesas e rendas</span></a>
       </li>
@@ -128,8 +128,8 @@
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Login Screens:</h6>
-                  <a class="collapse-item" href="login.html">Login</a>
-                  <a class="collapse-item" href="register.html">Register</a>
+                  <a class="collapse-item" href="/login">Login</a>
+                  <a class="collapse-item" href="/cadastro">Register</a>
                   <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                   <div class="collapse-divider"></div>
                   <h6 class="collapse-header">Other Pages:</h6>
@@ -163,10 +163,10 @@
 
     </ul>
     <!-- End of Sidebar -->
-      
+
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-      
+
 
       {{-- SLIDE --}}
 
@@ -802,7 +802,7 @@
         </div><!-- End of Content Wrapper -->
 
       </main>
-    
+
     </div>
     <!-- End of Page Wrapper -->
 
@@ -881,11 +881,11 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="js/core/popper.min.js"></script>
-  <script src="js/core/bootstrap.min.js"></script>
-  <script src="js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="js/plugins/chartjs.min.js"></script>
+  <script src="{{asset('js/core/popper.min.js')}}"></script>
+  <script src="{{asset('js/core/bootstrap.min.js')}}"></script>
+  <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script>
+  <script src="{{asset('js/plugins/smooth-scrollbar.min.js')}}"></script>
+  <script src="{{asset('js/plugins/chartjs.min.js')}}"></script>
   <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
