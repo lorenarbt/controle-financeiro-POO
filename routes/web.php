@@ -20,7 +20,7 @@ Route::get('/', 'PrincipalController@index')->name('index');
     // view de login
     Route::get('/login', 'UserController@login')->name('login');
     // função de login
-    Route::post('/login/auth', 'UserController@autenticar')->name('login.auth');
+    Route::get('/login/auth', 'UserController@autenticar')->name('login.auth');
 
 // cadastro
     // view de cadastro

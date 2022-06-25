@@ -38,10 +38,17 @@ class UserController extends Controller
 
     public function autenticar(Request $request){
         // Regras de autenticação
+        $this->validate($request,[
+            'email' => 'required',
+            'password' => 'required'
+        ], [
+            'email.required'=>'O Email é obrigatório',
+            'password.required'=>'A senha é obrigatória'
+        ]);
         if (Auth::attempt(['email'=>$request->email, 'password'=> $request->password])){
-        dd('Logou');
+            return view('site.index');
         }else{
-            dd('Não logou');
+            return redirect()->back()->with('danger','E-mail ou senha inválida');
         }
     }
 }

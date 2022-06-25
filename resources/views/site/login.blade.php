@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary" >
 
     <div class="container">
 
@@ -42,7 +42,23 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bem Vindo!</h1>
                                     </div>
-                                    <form class="user" action="{{route('login.auth')}}" method="post">
+                                    @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                    @endif
+
+                                    @if(session('danger'))
+                                        <div class="alert alert-danger">
+                                            {{session('danger')}}
+                                        </div>
+
+                                    @endif
+
+                                    <form class="user" action="{{route('login.auth')}}" method="GET">
                                         @csrf
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
@@ -59,7 +75,7 @@
                                                 <label class="custom-control-label" for="customCheck">Lembrar-me</label>
                                             </div> --}}
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Login</button>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                         {{-- <a href="/" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a> --}}
