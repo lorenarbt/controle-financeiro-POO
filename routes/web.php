@@ -13,11 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// view inicial a ser carregada
-Route::get('/', 'PrincipalController@index')->name('index');
-
 // login
-    // view de login
+// view de login
+    Route::get('/', 'UserController@login')->name('login');
     Route::get('/login', 'UserController@login')->name('login');
     // função de login
     Route::get('/login/auth', 'UserController@autenticar')->name('login.auth');
@@ -29,6 +27,9 @@ Route::get('/', 'PrincipalController@index')->name('index');
     Route::post('/register/auth', 'UserController@register')->name('register.auth');
 
 Route::prefix('/user')->group(function() {
+    // view inicial a ser carregada
+    Route::get('/', 'PrincipalController@index')->name('user.index');
+
     // dashboard geral dos dados
     Route::get('/visao-geral', 'VisaoGeralController@visaoGeral')->name('user.visao-geral');
 

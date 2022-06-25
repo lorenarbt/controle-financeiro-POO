@@ -10,6 +10,8 @@ use App\Renda;
 class VisaoGeralController extends Controller
 {
     public function visaoGeral(){
+        $this->checkLogin();
+
         $despesas = Despesa::all();
         $rendas = Renda::all();
 

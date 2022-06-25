@@ -10,10 +10,13 @@ class Despesa extends Model
         'id',
         'user_id',
         'desc',
-        'value',
         'fixed',
-        'ini_month',
-        'deadline'
+        'ini_date',
+        'end_date',
+        'deadline',
+        'relevance',
+        'type',
+        'value'
 
     ];
 }

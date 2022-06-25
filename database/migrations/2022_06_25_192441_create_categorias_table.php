@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDespesasTable extends Migration
+class CreateCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateDespesasTable extends Migration
      */
     public function up()
     {
-        Schema::create('despesas', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('desc');
-            $table->boolean('fixed');
-            $table->date('ini_month')->nullable();
-            $table->unsignedInteger('deadline')->nullable();
-            $table->foreign('deadline')->references('id')->on('prazos');
-            $table->double('value',8,2);
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ class CreateDespesasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('despesas');
+        Schema::dropIfExists('categorias');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Transferencia;
 use App\Banco;
@@ -11,6 +12,8 @@ use App\MetodoPagamento;
 class TransferenciasController extends Controller
 {
     public function transferencias(){
+        $this->checkLogin();
+
         $transferencias = Transferencia::all();
         $bancos = Banco::all();
         $metodoPag = MetodoPagamento::all();
@@ -19,6 +22,8 @@ class TransferenciasController extends Controller
     }
 
     public function createTransf(){
+        $this->checkLogin();
+
         $bancos = Banco::all();
         $metodoPag = MetodoPagamento::all();
 
@@ -26,6 +31,8 @@ class TransferenciasController extends Controller
     }
 
     public function editTransf($id){
+        $this->checkLogin();
+
         $banco = Transferencia::find($id);
         $metodoPag = MetodoPagamento::all();
 
@@ -33,8 +40,10 @@ class TransferenciasController extends Controller
     }
 
     public function insertTransf(Request $req){
+        $this->checkLogin();
+
         $data = [
-            'user_id' => $req->user_id,
+            'user_id' => Auth::user()->id,
             'desc' => $req->desc,
             'way' => $req->way,
             'value' => str_replace(',', '.', $req->balance),
@@ -48,8 +57,10 @@ class TransferenciasController extends Controller
     }
 
     public function updateTransf(Request $req, $id){
+        $this->checkLogin();
+
         $data = [
-            'user_id' => $req->user_id,
+            'user_id' => Auth::user()->id,
             'desc' => $req->desc,
             'way' => $req->way,
             'value' => str_replace(',', '.', $req->value),
@@ -63,6 +74,8 @@ class TransferenciasController extends Controller
     }
 
     public function deleteTransf($id){
+        $this->checkLogin();
+
         Transferencia::find($id)->delete();
 
         return redirect('user.transferencias');

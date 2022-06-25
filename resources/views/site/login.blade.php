@@ -91,7 +91,7 @@
                                         <a class="small" href="forgot-password.html">Esqueceu a sua senha?</a>
                                     </div> --}}
                                     <div class="text-center">
-                                        <a class="small" href="cadastro">Não possui uma conta? Crie aqui!</a>
+                                        <a class="small" href="/register">Não possui uma conta? Crie aqui!</a>
                                     </div>
                                 </div>
                             </div>

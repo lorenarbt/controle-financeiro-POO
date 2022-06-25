@@ -9,6 +9,8 @@ use App\Renda;
 class PrincipalController extends Controller
 {
     public function index () {
+        $this->checkLogin();
+        
         return view('site.index');
     }
 }

@@ -30,10 +30,8 @@ class UserController extends Controller
         // Cadastro do usuário na base de dados
         User::create($data);
 
-        // Redirecionar para função de autenticação com $data como Request e realizar logon
-
-        // Redireciona para visão geral
-        return redirect('/');
+        // Redireciona para login
+        return redirect('/login');
     }
 
     public function autenticar(Request $request){
@@ -46,7 +44,7 @@ class UserController extends Controller
             'password.required'=>'A senha é obrigatória'
         ]);
         if (Auth::attempt(['email'=>$request->email, 'password'=> $request->password])){
-            return view('site.index');
+            return redirect('/user');
         }else{
             return redirect()->back()->with('danger','E-mail ou senha inválida');
         }
