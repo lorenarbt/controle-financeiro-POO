@@ -15,17 +15,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    // -- Não se sabe se funciona na base dos controllers para ser herdado, precisa de testes, incluindo ao herdar de BaseController --
-    // protected $model;
-    // protected $pag = null;
 
-    // public function __construct(User $user)
-    // {
-    //   $this->model = $user;
-    // }
-
-
-    // -- métodos abstratos herdados de BaseController --
+    // -- métodos abstratos de BaseController implementados --
 
     // -- verifica se há usuário logado --
     protected function checkLogin(){

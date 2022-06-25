@@ -10,54 +10,61 @@ use App\MetodoPagamento;
 
 class TransferenciasController extends Controller
 {
-    public function despesasRendas(){
-        $bancos = Transferencia::all();
+    public function transferencias(){
+        $transferencias = Transferencia::all();
+        $bancos = Banco::all();
+        $metodoPag = MetodoPagamento::all();
 
-        return view ('site.bancos',compact('bancos'));
+        return view ('site.transferencias',compact('transferencias'));
     }
 
-    public function createDesp(){
-        $tipoContas = TipoConta::all();
+    public function createTransf(){
+        $bancos = Banco::all();
+        $metodoPag = MetodoPagamento::all();
 
-        return view('act.banco',compact('tipoContas'));
+        return view('act.transferencia',compact('metodoPag'));
     }
 
-    public function editDesp($id){
+    public function editTransf($id){
         $banco = Transferencia::find($id);
-        $tipoContas = TipoConta::all();
+        $metodoPag = MetodoPagamento::all();
 
-        return view('act.banco',compact('banco','tipoContas'));
+        return view('act.transferencia',compact('banco','metodoPag'));
     }
 
-    public function insertDesp(Request $req){
+    public function insertTransf(Request $req){
         $data = [
             'user_id' => $req->user_id,
             'desc' => $req->desc,
-            'balance' => str_replace(',', '.', $req->balance),
-            'type' => $req->type
+            'way' => $req->way,
+            'value' => str_replace(',', '.', $req->balance),
+            'bank_id' => $req->bank_id,
+            'method' => $req->method
         ];
 
         Transferencia::create($data);
 
-        return redirect('user.bancos');
+        return redirect('user.transferencias');
     }
 
-    public function updateDesp(Request $req, $id){
+    public function updateTransf(Request $req, $id){
         $data = [
             'user_id' => $req->user_id,
             'desc' => $req->desc,
-            'balance' => str_replace(',', '.', $req->balance),
-            'type' => $req->type
+            'way' => $req->way,
+            'value' => str_replace(',', '.', $req->value),
+            'bank_id' => $req->bank_id,
+            'method' => $req->method
         ];
 
         Transferencia::find($id)->update($data);
 
-        return redirect('user.bancos');
+        return redirect('user.transferencias');
     }
 
-    public function deleteDesp($id){
+    public function deleteTransf($id){
         Transferencia::find($id)->delete();
 
-        return redirect('user.bancos');
+        return redirect('user.transferencias');
     }
 }

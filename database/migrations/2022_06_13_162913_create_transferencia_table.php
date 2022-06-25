@@ -17,15 +17,14 @@ class CreateTransferenciaTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('desc');
+            $table->bool('way')();
+            $table->double('value',8,2);
             $table->unsignedInteger('bank_id');
             $table->foreign('bank_id')->references('id')->on('bancos');
-            $table->double('value',8,2);
-            $table->date('ini_month')->nullable();
-            $table->unsignedInteger('deadline')->nullable();
-            $table->foreign('deadline')->references('id')->on('prazos');
+            $table->date('date')->nullable();
             $table->unsignedInteger('method');
             $table->foreign('method')->references('id')->on('metodo_pagamentos');
-            $table->string('receiver');
             $table->timestamps();
         });
     }

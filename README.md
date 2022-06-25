@@ -5,7 +5,7 @@ O Controle-Financeiro é um sistema web de controle de finanças pessoais, desen
 ## Implementação
 Com servidor mysql local ```127.0.0.1:3306``` configurado e em execução;
 
-Criar database de nome ```controle_financeiro</```, username ```root``` e senha vazia;
+Criar database de nome ```controle_financeiro```, username ```root``` e senha vazia;
 
 Acessar pasta raíz do projeto por terminal unix ou cmd/powershell e executar os seguintes comandos:
 
