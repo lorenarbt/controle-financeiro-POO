@@ -47,7 +47,7 @@ class BancosController extends Controller
 
         Banco::create($data);
 
-        return redirect('user.bancos');
+        return redirect('user/bancos');
     }
 
     public function updateDesp(Request $req, $id){
@@ -62,7 +62,7 @@ class BancosController extends Controller
 
         Banco::find($id)->update($data);
 
-        return redirect('user.bancos');
+        return redirect('user/bancos');
     }
 
     public function deleteDesp($id){
@@ -70,6 +70,6 @@ class BancosController extends Controller
 
         Banco::find($id)->delete();
 
-        return redirect('user.bancos');
+        return redirect('user/bancos');
     }
 }

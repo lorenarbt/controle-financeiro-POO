@@ -53,7 +53,7 @@ class TransferenciasController extends Controller
 
         Transferencia::create($data);
 
-        return redirect('user.transferencias');
+        return redirect('user/transferencias');
     }
 
     public function updateTransf(Request $req, $id){
@@ -70,7 +70,7 @@ class TransferenciasController extends Controller
 
         Transferencia::find($id)->update($data);
 
-        return redirect('user.transferencias');
+        return redirect('user/transferencias');
     }
 
     public function deleteTransf($id){
@@ -78,6 +78,6 @@ class TransferenciasController extends Controller
 
         Transferencia::find($id)->delete();
 
-        return redirect('user.transferencias');
+        return redirect('user/transferencias');
     }
 }

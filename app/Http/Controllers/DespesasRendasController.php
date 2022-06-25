@@ -14,7 +14,7 @@ class DespesasRendasController extends Controller
     private $user_id;
 
     public function __construct(){
-        $this->user_id = Auth::user()->id;
+        // $this->user_id = Auth::user()->id;
     }
 
     public function despesasRendas(){
@@ -28,7 +28,7 @@ class DespesasRendasController extends Controller
         $rendas = Renda::select('*')->where('user_id',Auth::user()->id)->get();
         // dd($rendas);
 
-        return view ('site.despesas-rendas',compact('despesas','rendas'));
+        return view('site.despesas-rendas',compact('despesas','rendas'));
     }
 
     public function createDesp(){
@@ -54,15 +54,18 @@ class DespesasRendasController extends Controller
         $data = [
             'user_id' => Auth::user()->id,
             'desc' => $req->desc,
-            'value' => str_replace(',', '.', $req->value),
             'fixed' => (bool)$req->fixed,
-            'ini_month' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_month))),
-            'deadline' => $req->deadline
+            'ini_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_month))),
+            'end_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->end_month))),
+            'deadline' => $req->deadline,
+            'relevance' => $req->relevance,
+            'type' => $req->type,
+            'value' => str_replace(',', '.', $req->value),
         ];
 
         Despesa::create($data);
 
-        return redirect('user.despesas-rendas');
+        return redirect('user/despesas-rendas');
     }
 
     public function updateDesp(Request $req, $id){
@@ -79,7 +82,7 @@ class DespesasRendasController extends Controller
 
         Despesa::find($id)->update($data);
 
-        return redirect('user.despesas-rendas');
+        return redirect('user/despesas-rendas');
     }
 
     public function deleteDesp($id){
@@ -87,7 +90,7 @@ class DespesasRendasController extends Controller
 
         Despesa::find($id)->delete();
 
-        return redirect('user.despesas-rendas');
+        return redirect('user/despesas-rendas');
     }
 
     public function createRend(){
@@ -117,7 +120,7 @@ class DespesasRendasController extends Controller
 
         Renda::create($data);
 
-        return redirect('user.despesas-rendas');
+        return redirect('user/despesas-rendas');
     }
 
     public function updateRend(Request $req, $id){
@@ -133,7 +136,7 @@ class DespesasRendasController extends Controller
 
         Renda::find($id)->update($data);
 
-        return redirect('user.despesas-rendas');
+        return redirect('user/despesas-rendas');
     }
 
     public function deleteRend($id){
@@ -141,6 +144,6 @@ class DespesasRendasController extends Controller
 
         Renda::find($id)->delete();
 
-        return redirect('user.despesas-rendas');
+        return redirect('user/despesas-rendas');
     }
 }
