@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class UsuariosTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class UsuariosTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('usuarios')->insert(
+        DB::table('users')->insert(
             [
                 [
                     'name' => 'Lorena Robeta',
@@ -20,7 +20,7 @@ class UsuariosTableSeeder extends Seeder
                     'password' => bcrypt('123456'),
                     'cpf' => '111.111.111-11',
                     'tel' => '(71) 99999-9999'
-                    
+
                 ],
                 [
                     'name' => 'Alexandre Coelho',

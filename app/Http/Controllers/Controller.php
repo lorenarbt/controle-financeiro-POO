@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
-use App\Usuario;
+use App\User;
 
 class Controller extends BaseController
 {
@@ -19,7 +19,7 @@ class Controller extends BaseController
     // protected $model;
     // protected $pag = null;
 
-    // public function __construct(Usuario $user)
+    // public function __construct(User $user)
     // {
     //   $this->model = $user;
     // }

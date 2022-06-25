@@ -18,15 +18,15 @@ Route::get('/', 'PrincipalController@index')->name('index');
 
 // login
     // view de login
-    Route::get('/login', 'UsuarioController@login')->name('login');
+    Route::get('/login', 'UserController@login')->name('login');
     // função de login
-    Route::post('/login/auth', 'UsuarioController@autenticar')->name('login.auth');
+    Route::post('/login/auth', 'UserController@autenticar')->name('login.auth');
 
 // cadastro
     // view de cadastro
-    Route::get('/register', 'UsuarioController@cadastro')->name('register');
+    Route::get('/register', 'UserController@cadastro')->name('register');
     // função de register
-    Route::post('/register/auth', 'UsuarioController@register')->name('register.auth');
+    Route::post('/register/auth', 'UserController@register')->name('register.auth');
 
 Route::prefix('/user')->group(function() {
     // dashboard geral dos dados

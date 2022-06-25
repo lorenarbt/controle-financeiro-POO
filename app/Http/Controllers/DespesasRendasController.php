@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Despesa;
 use App\Renda;
@@ -61,6 +62,50 @@ class DespesasRendasController extends Controller
 
     public function deleteDesp($id){
         Despesa::find($id)->delete();
+
+        return redirect('user.despesas-rendas');
+    }
+
+    public function createRend(){
+        return view('act.renda');
+    }
+
+    public function editRend($id){
+        $renda = Renda::find($id);
+
+        return view('act.renda',compact('renda'));
+    }
+
+    public function insertRend(Request $req){
+        $data = [
+            'user_id' => $req->user_id,
+            'desc' => $req->desc,
+            'value' => str_replace(',', '.', $req->value),
+            'ini_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_date))),
+            'end_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->end_date)))
+        ];
+
+        Renda::create($data);
+
+        return redirect('user.despesas-rendas');
+    }
+
+    public function updateRend(Request $req, $id){
+        $data = [
+            'user_id' => $req->user_id,
+            'desc' => $req->desc,
+            'value' => str_replace(',', '.', $req->value),
+            'ini_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_date))),
+            'end_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->end_date)))
+        ];
+
+        Renda::find($id)->update($data);
+
+        return redirect('user.despesas-rendas');
+    }
+
+    public function deleteRend($id){
+        Renda::find($id)->delete();
 
         return redirect('user.despesas-rendas');
     }

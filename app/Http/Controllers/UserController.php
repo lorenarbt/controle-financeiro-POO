@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Usuario;
+use App\User;
 
-class UsuarioController extends Controller
+class UserController extends Controller
 {
     public function login(){
         return view('site.login');
@@ -28,7 +28,7 @@ class UsuarioController extends Controller
         ];
 
         // Cadastro do usuário na base de dados
-        Usuario::create($data);
+        User::create($data);
 
         // Redirecionar para função de autenticação com $data como Request e realizar logon
 

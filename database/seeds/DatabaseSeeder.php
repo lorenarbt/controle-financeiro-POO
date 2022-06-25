@@ -12,17 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsuariosTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
         $this->call(PrazosTableSeeder::class);
         $this->call(TipoContasTableSeeder::class);
         $this->call(MetodoPagamentosTableSeeder::class);
-
-        DB::table('rendas')->insert([
-            'user_id'=> 2,
-            'desc'=> Str::random(10),
-            'value'=> 100.35
-    
-    
-        ]);
     }
 }

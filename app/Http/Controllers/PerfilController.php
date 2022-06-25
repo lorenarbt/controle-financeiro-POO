@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Usuario;
+use App\User;
 
 class PerfilController extends Controller
 {
@@ -12,7 +12,7 @@ class PerfilController extends Controller
     // protected $model;
     // protected $pag = null;
 
-    // public function __construct(Usuario $user)
+    // public function __construct(User $user)
     // {
     //   $this->model = $user;
     // }

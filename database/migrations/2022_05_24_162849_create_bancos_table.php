@@ -16,7 +16,7 @@ class CreateBancosTable extends Migration
         Schema::create('bancos', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('usuarios');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('desc');
             $table->double('balance',8,2);
             $table->unsignedInteger('type');
