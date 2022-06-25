@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Usuario;
 
 class UsuarioController extends Controller
@@ -37,15 +38,10 @@ class UsuarioController extends Controller
 
     public function autenticar(Request $request){
         // Regras de autenticação
-        $rules =  [
-            'email' => 'required|string',
-            'password' => 'required|string',
-        ];
-        dd($rules, $request);
-
-        // Autenticação de dados utilizados para login
-        $request->validate($request,$rules);
-
-        return redirect('/');
+        if (Auth::attempt(['email'=>$request->email, 'password'=> $request->password])){
+        dd('Logou');
+        }else{
+            dd('Não logou');
+        }
     }
 }
