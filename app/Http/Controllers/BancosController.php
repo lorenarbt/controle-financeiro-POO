@@ -10,7 +10,7 @@ use App\TipoConta;
 
 class BancosController extends Controller
 {
-    public function despesasRendas(){
+    public function bancos(){
         $this->checkLogin();
 
         $bancos = Banco::select('*')->where('user_id',Auth::user()->id)->get();
@@ -18,7 +18,7 @@ class BancosController extends Controller
         return view ('site.bancos',compact('bancos'));
     }
 
-    public function createDesp(){
+    public function createBanc(){
         $this->checkLogin();
 
         $tipoContas = TipoConta::all();
@@ -26,7 +26,7 @@ class BancosController extends Controller
         return view('act.banco',compact('tipoContas'));
     }
 
-    public function editDesp($id){
+    public function editBanc($id){
         $this->checkLogin();
 
         $banco = Banco::find($id);
@@ -35,7 +35,7 @@ class BancosController extends Controller
         return view('act.banco',compact('banco','tipoContas'));
     }
 
-    public function insertDesp(Request $req){
+    public function insertBanc(Request $req){
         $this->checkLogin();
 
         $data = [
@@ -50,7 +50,7 @@ class BancosController extends Controller
         return redirect('user/bancos');
     }
 
-    public function updateDesp(Request $req, $id){
+    public function updateBanc(Request $req, $id){
         $this->checkLogin();
 
         $data = [
@@ -65,7 +65,7 @@ class BancosController extends Controller
         return redirect('user/bancos');
     }
 
-    public function deleteDesp($id){
+    public function deleteBanc($id){
         $this->checkLogin();
 
         Banco::find($id)->delete();

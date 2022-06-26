@@ -9,6 +9,7 @@ class Renda extends Model
     protected $fillable = [
         'id',
         'user_id',
+        'ini_date',
         'desc',
         'value'
 

@@ -34,7 +34,7 @@
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 
                 <span class="login100-form-title p-b-49">
-                    <h3>{{ isset($despesa) ? 'Editar' : 'Inserir' }} Nova Despesa</h3>
+                    <h3>{{ isset($despesa) ? 'Editar' : 'Inserir' }} Despesa</h3>
                 </span>
 
 				<form class="login100-form validate-form" action="{{ isset($despesa) ? route('user.update.despesa',['id'=>$despesa->id]) : route('user.insert.despesa') }}" method="POST">
@@ -42,8 +42,8 @@
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome despesa é obrigatório">
                         <span class="label-input100 ">Descrição da despesa</span>
-                        <br>
-                        <input id="desc" name="desc" type="text" placeholder="Insira a descrição da despesa" value="{{ isset($despesa) ? $despesa->desc : '' }}">
+                        <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a descrição da despesa" value="{{ isset($despesa) ? $despesa->desc : '' }}">
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
                     </div>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da despesa é obrigatório">
@@ -54,7 +54,7 @@
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O tipo é obrigatório">
 						<span class="label-input100 ">Despesa fixa?</span>
-                        <select name="fixed" id="fixed">
+                        <select class="select" name="fixed" id="fixed">
                             <option value="1">Sim</option>
                             <option value="0">Não</option>
                         </select>
@@ -62,13 +62,13 @@
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "A data inicial é obrigatória">
                     <span class="label-input100 "  for="ini_month">Data Inicial</span>
-                    <br>
-                    <input id="ini_month" class="date" type="text " name="ini_month" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($despesa) ? $despesa->ini_month : '' }}">
+                    <input id="ini_month" class="date input100" type="text " name="ini_month" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($despesa) ? $despesa->ini_month : '' }}">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100" for="deadline">Prazo</span>
-						<select name="deadline" id="deadline">
+						<select class="select" name="deadline" id="deadline">
                             @foreach($deadlines as $dl)
                             <option value="{{$dl->id}}">{{$dl->desc}}</option>
                             @endforeach
