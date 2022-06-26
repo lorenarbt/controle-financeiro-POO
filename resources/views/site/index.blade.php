@@ -107,12 +107,12 @@
                             </div> <!-- navbar collapse -->
 
                             <div class="navbar-btn d-none d-sm-inline-block">
-                                <a class="main-btn main-btn-2" data-scroll-nav="0" href="#pricing">Login</a>
+                                <a class="main-btn main-btn-2"  href="/login">Login</a>
                             </div>
 
                             <div class="col-lg-1">
                             <div class="navbar-btn d-none d-sm-inline-block">
-                                <a class="main-btn" data-scroll-nav="0" href="#pricing">Cadastro</a>
+                                <a class="main-btn"  href="/register">Cadastro</a>
                             </div>
                             </div>
 
