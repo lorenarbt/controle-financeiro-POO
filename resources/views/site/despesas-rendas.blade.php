@@ -46,8 +46,6 @@
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
-      {{-- SLIDE --}}
-
       {{-- lançamentos --}}
       <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
