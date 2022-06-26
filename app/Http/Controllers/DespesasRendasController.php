@@ -22,9 +22,7 @@ class DespesasRendasController extends Controller
 
         // dd($this->user_id);
 
-        $despesas = Despesa::all();
-        // $rendas = Renda::all();
-
+        $despesas = Despesa::select('*')->where('user_id',Auth::user()->id)->get();
         $rendas = Renda::select('*')->where('user_id',Auth::user()->id)->get();
         // dd($rendas);
 
