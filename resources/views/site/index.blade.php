@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 
     <!--====== Title ======-->
-    <title>Consult - Business Consultancy Agency Template | Home</title>
+    <title>Controle Financeiro</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,7 +74,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html">
+                            <a class="navbar-brand" href="/">
                                 <img src="{{asset('assets/images/logo.png')}}" alt="Logo">
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,9 +106,6 @@
                                 </ul>
                             </div> <!-- navbar collapse -->
 
-                            <div class="navbar-btn d-none d-sm-inline-block">
-                                <a class="main-btn" data-scroll-nav="0" href="#pricing">Download</a>
-                            </div>
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -120,12 +117,9 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="header-hero-content">
-                            <h1 class="hero-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><b>Your</b> <span>Consultancy</span> Partner for <b>Growth.</b></h1>
-                            <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">Phasellus vel elit efficitur, gravida libero sit amet, scelerisque  tortor arcu, commodo sit amet nulla sed.</p>
-                            <div class="header-singup wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
-                                <input type="text" placeholder="username@yourdomain.com">
-                                <button class="main-btn">Sign Up</button>
-                            </div>
+                            <h1 class="hero-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><b>O</b> <span>Controle Financeiro</span> <br>da forma que você precisa, <b>Simples e Completo!</b></h1>
+                            <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">O Controle Financeiro te auxilia na gestão das suas rendas e dispesas de forma simples e descomplicada. Aqui você vizualiza todos os seus lançamentos de formo rápida e eficiente.</p>
+
                         </div> <!-- header hero content -->
                     </div>
                 </div> <!-- row -->

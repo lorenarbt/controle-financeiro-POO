@@ -29,7 +29,7 @@
 
 -----------------------------------------------------------------------------------*/
 /*===========================
-    01.COMMON css 
+    01.COMMON css
 ===========================*/
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,700,800&display=swap");
 body {
@@ -463,7 +463,7 @@ p {
     -o-transform: rotate(-130deg);
     transform: rotate(-130deg); } }
 /*===========================
-      02.HEADER css 
+      02.HEADER css
 ===========================*/
 /*===== NAVBAR =====*/
 .navbar-area {
@@ -783,7 +783,7 @@ p {
   .header-hero-content .hero-title b {
     font-weight: 700; }
   .header-hero-content .hero-title span {
-    color: #f14836;
+    color: cornflowerblue;
     display: contents; }
 .header-hero-content .text {
   max-width: 490px;
@@ -842,7 +842,7 @@ p {
         margin-top: 0; } }
 
 /*===========================
-        03.ABOUT css 
+        03.ABOUT css
 ===========================*/
 .about-title .welcome {
   font-size: 18px;
@@ -949,7 +949,7 @@ p {
   padding-top: 15px; }
 
 /*===========================
-       04.GALLERY css 
+       04.GALLERY css
 ===========================*/
 .single-gallery {
   position: relative; }
@@ -1060,7 +1060,7 @@ p {
   overflow: hidden; }
 
 /*===========================
-      05.SERVICE css 
+      05.SERVICE css
 ===========================*/
 .service-wrapper {
   -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
@@ -1467,7 +1467,7 @@ p {
       color: #f14836; }
 
 /*===========================
-       06.PRICING css 
+       06.PRICING css
 ===========================*/
 .single-pricing {
   padding: 65px 50px 70px; }
@@ -1529,7 +1529,7 @@ p {
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.07); }
 
 /*===========================
-       07.TESTIMONIAL css 
+       07.TESTIMONIAL css
 ===========================*/
 .testimonial-left-content .testimonial-line {
   padding-top: 10px; }
@@ -1646,7 +1646,7 @@ p {
     left: -635px; }
 
 /*===========================
-        08.BRAND css 
+        08.BRAND css
 ===========================*/
 .brand-wrapper {
   border-top: 1px solid #dedede4f; }
@@ -1659,7 +1659,7 @@ p {
         width: 50%; } }
 
 /*===========================
-         09.BL0G css 
+         09.BL0G css
 ===========================*/
 .single-blog .blog-image a {
   display: block; }
@@ -1701,7 +1701,7 @@ p {
         margin-top: 5px; }
 
 /*===========================
-      10.CONTACT  css 
+      10.CONTACT  css
 ===========================*/
 .contact-map iframe {
   width: 100%;
@@ -1774,8 +1774,26 @@ p {
 .contact-form .main-btn {
   border-radius: 5px; }
 
+.select{
+  flex:1;
+  padding:0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+.select::after{
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 lem;
+    background: #000;
+    cursor: pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+}
+
 /*===========================
-       11.FOOTER css 
+       11.FOOTER css
 ===========================*/
 .footer-about .text {
   padding-top: 25px;
@@ -1852,7 +1870,7 @@ p {
     background-color: #f14836; }
 
 /*===========================
-      12.PAGE BANNER css 
+      12.PAGE BANNER css
 ===========================*/
 .page-banner {
   padding-top: 235px;
@@ -1883,7 +1901,7 @@ p {
     display: contents; }
 
 /*===========================
-    13.BL0G DETAILS  css 
+    13.BL0G DETAILS  css
 ===========================*/
 .blog-details-content .details-image img {
   width: 100%; }
