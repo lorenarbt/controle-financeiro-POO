@@ -22,13 +22,13 @@ class BancosTableSeeder extends Seeder
             'user_id'=> 1,
             'desc'=>Str::random(10),
             'balance'=> 19,
-            'type'=> 3,
+            'type'=> 2,
         ]);
         Banco::create([
             'user_id'=> 1,
             'desc'=>Str::random(10),
             'balance'=> 22,
-            'type'=> 4,
+            'type'=> 1,
         ]);
         Banco::create([
             'user_id'=> 1,

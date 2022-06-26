@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriasTableSeeder::class);
         $this->call(RelevanciasTableSeeder::class);
         $this->call(DespesasTableSeeder::class);
+        $this->call(BancosTableSeeder::class);
+        $this->call(TransferenciasTableSeeder::class);
     }
 }
