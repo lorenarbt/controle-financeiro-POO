@@ -89,22 +89,33 @@
                                         <a href="#home">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#about">About </a>
+                                        <a href="#about">Visão geral</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#services">Services</a>
+                                        <a href="#services">Visão geral</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#portfolio">Portfolio</a>
+                                        <a href="#portfolio">Despesas e rendas</a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#blog">Blog</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#contact">Contact</a>
+                                        <a href="#contact">Criadores</a>
                                     </li>
                                 </ul>
                             </div> <!-- navbar collapse -->
+
+                            <div class="navbar-btn d-none d-sm-inline-block">
+                                <a class="main-btn main-btn-2" data-scroll-nav="0" href="#pricing">Login</a>
+                            </div>
+
+                            <div class="col-lg-1">
+                            <div class="navbar-btn d-none d-sm-inline-block">
+                                <a class="main-btn" data-scroll-nav="0" href="#pricing">Cadastro</a>
+                            </div>
+                            </div>
+
 
                         </nav> <!-- navbar -->
                     </div>
@@ -118,7 +129,7 @@
                     <div class="col-lg-7">
                         <div class="header-hero-content">
                             <h1 class="hero-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><b>O</b> <span>Controle Financeiro</span> <br>da forma que você precisa, <b>Simples e Completo!</b></h1>
-                            <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">O Controle Financeiro te auxilia na gestão das suas rendas e dispesas de forma simples e descomplicada. Aqui você vizualiza todos os seus lançamentos de formo rápida e eficiente.</p>
+                            <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">O Controle Financeiro te auxilia na gestão das suas rendas e despesas de forma simples e descomplicada. Aqui você vizualiza todos os seus lançamentos de formo rápida e eficiente.</p>
 
                         </div> <!-- header hero content -->
                     </div>
