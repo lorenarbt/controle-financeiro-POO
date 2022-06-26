@@ -48,7 +48,7 @@
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da despesa é obrigatório">
 						<span class="label-input100 ">Valor</span>
-						<input id="value" class="input100" type="text " name="value" placeholder="Insira o nvalor da despesa" value="{{ isset($despesa) ? $despesa->user_id : '' }}"> {{-- addicionar mask de reais --}}
+						<input id="value" class="input100" type="text " name="value" placeholder="Insira o valor da despesa" value="{{ isset($despesa) ? $despesa->user_id : '' }}"> {{-- addicionar mask de reais --}}
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
