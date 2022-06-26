@@ -63,8 +63,14 @@
 					</div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "A data inicial é obrigatória">
-                    <span class="label-input100 "  for="ini_month">Data Inicial</span>
-                    <input id="ini_month" class="date input100" type="text " name="ini_month" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($despesa) ? $despesa->ini_month : '' }}">
+                    <span class="label-input100 "  for="ini_date">Data Inicial</span>
+                    <input id="ini_date" class="date input100" type="text " name="ini_date" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($despesa) ? $despesa->ini_date : '' }}">
+                    <span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "A data inicial é obrigatória">
+                    <span class="label-input100 "  for="end_date">Data Final</span>
+                    <input id="end_date" class="date input100" type="text " name="end_date" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($despesa) ? $despesa->end_date : '' }}">
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 

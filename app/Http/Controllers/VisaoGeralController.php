@@ -17,6 +17,8 @@ class VisaoGeralController extends Controller
         $despesas = Despesa::select('*')->where('user_id',Auth::user()->id)->get();
         $rendas = Renda::select('*')->where('user_id',Auth::user()->id)->get();
 
+
+
         $totais = [
             'ganhos' => [
                 'mes_atual' => 2,
