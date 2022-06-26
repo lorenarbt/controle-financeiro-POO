@@ -14,8 +14,8 @@ class TransferenciasController extends Controller
     public function transferencias(){
         $this->checkLogin();
 
-        $transferencias = Transferencia::all();
-        $bancos = Banco::all();
+        $transferencias = Transferencia::select('*')->where('user_id',Auth::user()->id)->get();
+        $bancos = Banco::select('*')->where('user_id',Auth::user()->id)->get();
         $metodoPag = MetodoPagamento::all();
 
         return view ('site.transferencias',compact('transferencias'));
@@ -24,7 +24,7 @@ class TransferenciasController extends Controller
     public function createTransf(){
         $this->checkLogin();
 
-        $bancos = Banco::all();
+        $bancos = Banco::select('*')->where('user_id',Auth::user()->id)->get();
         $metodoPag = MetodoPagamento::all();
 
         return view('act.transferencia',compact('metodoPag'));

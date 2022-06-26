@@ -13,7 +13,7 @@ class BancosController extends Controller
     public function despesasRendas(){
         $this->checkLogin();
 
-        $bancos = Banco::all();
+        $bancos = Banco::select('*')->where('user_id',Auth::user()->id)->get();
 
         return view ('site.bancos',compact('bancos'));
     }
