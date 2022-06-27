@@ -22,6 +22,8 @@ Route::get('/', 'PrincipalController@index')->name('index');
     Route::get('/login', 'UserController@login')->name('login');
     // função de login
     Route::get('/login/auth', 'UserController@autenticar')->name('login.auth');
+    // função de logou
+    Route::get('/logout', 'UserController@logout')->name('logout');
 
 // cadastro
     // view de cadastro

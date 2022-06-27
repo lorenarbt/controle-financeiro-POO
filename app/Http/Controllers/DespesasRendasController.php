@@ -29,7 +29,10 @@ class DespesasRendasController extends Controller
                             ->orderBy('ini_date')
                             ->get();
 
-        $rendas     = Renda::select('*')->where('user_id',Auth::user()->id)->get();
+
+        $rendas     = Renda::select('*')->where('user_id',Auth::user()->id)
+                                        ->where(DB::raw("MONTH(ini_date)"),6)
+                                        ->get();
 
 
         return view('site.despesas-rendas',compact('despesas','rendas'));
