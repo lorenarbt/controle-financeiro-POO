@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -10,6 +10,9 @@
     <meta name="author" content="">
 
     <title>Controle Financeiro - Login</title>
+
+<!--====== Favicon Icon ======-->
+<link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/png">
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -9,6 +9,9 @@
     <meta name="author" content="">
 
     <title>SB Admin 2 - Register</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/png">
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
