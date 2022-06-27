@@ -266,8 +266,10 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Despesas e Rendas</h1>
-            {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                <i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
+            <a href="{{route('user.create.despesa')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-coins fa-sm text-white-50"></i> Inserir nova despesa</a>
+            <a href="{{route('user.create.renda')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: #36b9cc; color: #fff;">
+                <i class="fas fa-hand-holding-usd fa-sm text-white-50"></i> Inserir nova renda</a>
         </div>
 
         <!-- Navbar -->

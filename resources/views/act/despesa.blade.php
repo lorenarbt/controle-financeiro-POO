@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Login V4</title>
+	<title>Inserir despesa</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -57,8 +57,8 @@
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O tipo é obrigatório">
 						<span class="label-input100 ">Despesa fixa?</span>
                         <select class="select" name="fixed" id="fixed">
-                            <option value="1" {{$despesa->fixed == 1 ? 'selected' : ''}}>Sim</option>
-                            <option value="0" {{$despesa->fixed == 0 ? 'selected' : ''}}>Não</option>
+                            <option value="1" {{ isset($despesa) && $despesa->fixed == 1 ? 'selected' : ''}}>Sim</option>
+                            <option value="0" {{ isset($despesa) && $despesa->fixed == 0 ? 'selected' : ''}}>Não</option>
                         </select>
 					</div>
 
@@ -72,7 +72,7 @@
 						<span class="label-input100" for="deadline">Prazo</span>
 						<select class="select" name="deadline" id="deadline">
                             @foreach($deadlines as $dl)
-                            <option value="{{$dl->id}}" {{$despesa->deadline == $dl->id ? 'selected' : ''}}>{{$dl->desc}}</option>
+                            <option value="{{$dl->id}}" {{ isset($despesa) && $despesa->deadline == $dl->id ? 'selected' : ''}}>{{$dl->desc}}</option>
                             @endforeach
                         </select>
 					</div>

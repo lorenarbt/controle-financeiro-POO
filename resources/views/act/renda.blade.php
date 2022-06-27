@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Login V4</title>
+	<title>Inserir renda</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,7 +32,7 @@
     </style>
 
 <!--===============================================================================================-->
-    <link href="{{asset('images/icons/favicon.ico')}}" rel="icon" type="image/png"/>
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/png">
 <!--===============================================================================================-->
 	<link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
 <!--===============================================================================================-->
