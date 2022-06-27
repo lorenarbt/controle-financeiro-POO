@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -11,6 +11,9 @@
 
 
     <title>Controle Financeiro - Dashboard</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/png">
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -410,7 +413,7 @@
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Porcentagem por Categorias</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Categorias de Despesas</h6>
                                 </div>
                                 <div class="card-body">
                                     <h4 class="small font-weight-bold">Alimentação <span id="alimentacao_text" class="float-right">{{$categoria_despesas['alimentacao']}}%</span></h4>

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-    <link href="{{asset('images/icons/favicon.ico')}}" rel="icon" type="image/png"/>
+    <link href="{{asset('assets/images/favicon.png')}}" rel="icon" type="image/png"/>
 <!--===============================================================================================-->
 	<link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
 <!--===============================================================================================-->
