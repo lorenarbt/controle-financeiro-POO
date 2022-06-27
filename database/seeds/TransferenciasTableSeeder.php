@@ -52,4 +52,6 @@ class TransferenciasTableSeeder extends Seeder
             'method'=> 4
         ]);
     }
+
+    
 }
