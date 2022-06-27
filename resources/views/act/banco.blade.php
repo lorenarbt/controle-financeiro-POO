@@ -38,18 +38,18 @@
                     <h3>{{ isset($banco) ? 'Editar' : 'Inserir' }} Banco</h3>
                 </span>
 
-				<form class="login100-form validate-form" action="{{ isset($banco) ? route('user.update.despesa',['id'=>$banco->id]) : route('user.insert.despesa') }}" method="POST">
+				<form class="login100-form validate-form" action="{{ isset($banco) ? route('user.update.banco',['id'=>$banco->id]) : route('user.insert.banco') }}" method="POST">
                     @csrf
 
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome despesa é obrigatório">
-                        <span class="label-input100 ">Descrição da despesa</span>
-                        <input id="desc" name="desc" class="input100" type="text" placeholder="Insira a descrição da despesa" value="{{ isset($banco) ? $banco->desc : '' }}">
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome banco é obrigatório">
+                        <span class="label-input100 ">Descrição do banco</span>
+                        <input id="desc" name="desc" class="input100" type="text" placeholder="Insira a descrição da banco" value="{{ isset($banco) ? $banco->desc : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
                     </div>
 
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da despesa é obrigatório">
+					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da banco é obrigatório">
 						<span class="label-input100 ">Valor</span>
-						<input id="value" name="value" class="input100" type="text" placeholder="Insira o nvalor da despesa" value="{{ isset($banco) ? $banco->balance : '' }}">
+						<input id="value" name="value" class="input100" type="text" placeholder="Insira o valor da banco" value="{{ isset($banco) ? $banco->balance : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 

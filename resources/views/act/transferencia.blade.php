@@ -35,23 +35,32 @@
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 
                 <span class="login100-form-title p-b-49">
-                    <h3>{{ isset($despesa) ? 'Editar' : 'Inserir' }} Transferência</h3>
+                    <h3>{{ isset($transferencia) ? 'Editar' : 'Inserir' }} Transferência</h3>
                 </span>
 
-				<form class="login100-form validate-form" action="{{ isset($despesa) ? route('user.update.despesa',['id'=>$despesa->id]) : route('user.insert.despesa') }}" method="POST">
+				<form class="login100-form validate-form" action="{{ isset($transferencia) ? route('user.update.transferencia',['id'=>$transferencia->id]) : route('user.insert.transferencia') }}" method="POST">
                     @csrf
 
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome despesa é obrigatório">
-                        <span class="label-input100 ">Descrição da despesa</span>
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome transferencia é obrigatório">
+                        <span class="label-input100 ">Descrição da transferencia</span>
                         <br>
-                        <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a descrição da despesa" value="{{ isset($despesa) ? $despesa->desc : '' }}">
+                        <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a descrição da transferencia" value="{{ isset($transferencia) ? $transferencia->desc : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
                     </div>
 
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da despesa é obrigatório">
+					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da transferencia é obrigatório">
 						<span class="label-input100 ">Valor</span>
-						<input id="value" class="input100" type="text " name="value" placeholder="Insira o nvalor da despesa" value="{{ isset($despesa) ? $despesa->user_id : '' }}">
+						<input id="value" class="input100" type="text " name="value" placeholder="Insira o nvalor da transferencia" value="{{ isset($transferencia) ? $transferencia->user_id : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<span class="label-input100" for="bank_id">Banco</span>
+						<select class="select" name="bank_id" id="bank_id">
+                            @foreach($bancos as $bk)
+                            <option value="{{$bk->id}}" {{$transferencia->bank_id == $bk->id ? 'selected' : ''}}>{{$bk->desc}}</option>
+                            @endforeach
+                        </select>
 					</div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O tipo é obrigatório">
@@ -64,7 +73,7 @@
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "A data inicial é obrigatória">
                         <span class="label-input100 "  for="ini_month">Data Inicial</span>
-                        <input id="ini_month" class="date input100" type="text " name="ini_month" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($despesa) ? $despesa->ini_month : '' }}">
+                        <input id="ini_month" class="date input100" type="text " name="ini_month" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($transferencia) ? $transferencia->ini_month : '' }}">
                         <span class="focus-input100" data-symbol="&#xf206;"></span>
                         </div>
 
