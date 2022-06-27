@@ -98,16 +98,17 @@ class BancosTransferenciasController extends Controller
         $bancos = Banco::select('*')->where('user_id',Auth::user()->id)->get();
         $metodoPag = MetodoPagamento::all();
 
-        return view('act.transferencia',compact('banco','metodoPag'));
+        return view('act.transferencia',compact('bancos','metodoPag'));
     }
 
     public function editTransf($id){
         $this->checkLogin();
 
-        $banco = Transferencia::find($id);
+        $bancos = Banco::select('*')->where('user_id',Auth::user()->id)->get();
+        $transferencia = Transferencia::find($id);
         $metodoPag = MetodoPagamento::all();
 
-        return view('act.transferencia',compact('banco','metodoPag'));
+        return view('act.transferencia',compact('bancos','transferencia','metodoPag'));
     }
 
     public function insertTransf(Request $req){
