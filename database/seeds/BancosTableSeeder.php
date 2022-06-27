@@ -14,25 +14,25 @@ class BancosTableSeeder extends Seeder
     public function run(){
         Banco::create([
             'user_id'=> 1,
-            'desc'=>Str::random(10),
+            'desc'=> 'Caixa',
             'balance'=> 15,
             'type'=> 1
         ]);
         Banco::create([
             'user_id'=> 1,
-            'desc'=>Str::random(10),
+            'desc'=> 'Banco do Brasil',
             'balance'=> 19,
             'type'=> 2,
         ]);
         Banco::create([
             'user_id'=> 1,
-            'desc'=>Str::random(10),
+            'desc'=> 'Santander',
             'balance'=> 22,
             'type'=> 1,
         ]);
         Banco::create([
             'user_id'=> 1,
-            'desc'=>Str::random(10),
+            'desc'=> 'Bradesco',
             'balance'=> 20,
             'type'=> 2
         ]);

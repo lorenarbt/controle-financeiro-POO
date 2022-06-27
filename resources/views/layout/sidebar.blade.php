@@ -24,6 +24,12 @@
             <span>Despesas e rendas</span></a>
     </li>
 
+    <li class="nav-item active">
+        <a class="nav-link" href="{{route('user.bancos-transfer')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Bancos e Transferências</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 

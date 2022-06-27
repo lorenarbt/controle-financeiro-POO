@@ -78,39 +78,40 @@ Route::prefix('/user')->group(function() {
         Route::put('/delete-rend/{id}', 'DespesasRendasController@deleteRend')->name('user.delete.renda');
 
 
-    // dashboard dos bancos
-    Route::get('/bancos', 'DespesasRendasController@bancos')->name('user.bancos');
+    // tabela dos bancos e transferencias
+    Route::get('/bancos-transfer', 'BancosTransferenciasController@bancosTransferencias')->name('user.bancos-transfer');
+
         // view de inserção de banco
-        Route::get('/create-banco','BancosController@createBanc')->name('user.create.banco');
+        Route::get('/create-banco','BancosTransferenciasController@createBanc')->name('user.create.banco');
 
         // view de edição de banco
-        Route::get('/edit-banco/{id}', 'BancosController@editBanc')->name('user.edit.banco');
+        Route::get('/edit-banco/{id}', 'BancosTransferenciasController@editBanc')->name('user.edit.banco');
 
         // função de inserção de banco
-        Route::post('/insert-banc', 'BancosController@insertBanc')->name('user.insert.banco');
+        Route::post('/insert-banc', 'BancosTransferenciasController@insertBanc')->name('user.insert.banco');
 
         // função de edição de banco
-        Route::post('/update-banc/{id}', 'BancosController@updateBanc')->name('user.update.banco');
+        Route::post('/update-banc/{id}', 'BancosTransferenciasController@updateBanc')->name('user.update.banco');
 
         // função de deleção de banco
-        Route::get('/delete-banc/{id}', 'BancosController@deleteBanc')->name('user.delete.banco');
+        Route::get('/delete-banc/{id}', 'BancosTransferenciasController@deleteBanc')->name('user.delete.banco');
 
-    // dashboard das transferencias
-    Route::get('/transfer', 'TransferenciasController@transferencias')->name('user.transfer');
+
+
         // view de inserção de transferencia
-        Route::get('/create-transferencia','TransferenciasController@createTransf')->name('user.create.transferencia');
+        Route::get('/create-transferencia','BancosTransferenciasController@createTransf')->name('user.create.transferencia');
 
         // view de edição de transferencia
-        Route::get('/edit-transferencia/{id}', 'TransferenciasController@editTransf')->name('user.edit.transferencia');
+        Route::get('/edit-transferencia/{id}', 'BancosTransferenciasController@editTransf')->name('user.edit.transferencia');
 
         // função de inserção de transferencia
-        Route::post('/insert-transf', 'TransferenciasController@insertTransf')->name('user.insert.transferencia');
+        Route::post('/insert-transf', 'BancosTransferenciasController@insertTransf')->name('user.insert.transferencia');
 
         // função de edição de transferencia
-        Route::post('/update-transf/{id}', 'TransferenciasController@updateTransf')->name('user.update.transferencia');
+        Route::post('/update-transf/{id}', 'BancosTransferenciasController@updateTransf')->name('user.update.transferencia');
 
         // função de deleção de transferencia
-        Route::get('/delete-transf/{id}', 'TransferenciasController@deleteTransf')->name('user.delete.transferencia');
+        Route::get('/delete-transf/{id}', 'BancosTransferenciasController@deleteTransf')->name('user.delete.transferencia');
 });
 
 
