@@ -15,25 +15,25 @@ class BancosTableSeeder extends Seeder
         Banco::create([
             'user_id'=> 1,
             'desc'=> 'Caixa',
-            'balance'=> 15,
+            'balance'=> 15000,
             'type'=> 1
         ]);
         Banco::create([
             'user_id'=> 1,
             'desc'=> 'Banco do Brasil',
-            'balance'=> 19,
+            'balance'=> 1900,
             'type'=> 2,
         ]);
         Banco::create([
             'user_id'=> 1,
             'desc'=> 'Santander',
-            'balance'=> 22,
+            'balance'=> 2300,
             'type'=> 1,
         ]);
         Banco::create([
             'user_id'=> 1,
             'desc'=> 'Bradesco',
-            'balance'=> 20,
+            'balance'=> 200,
             'type'=> 2
         ]);
     }
