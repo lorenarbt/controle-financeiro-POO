@@ -20,11 +20,10 @@ class DespesasRendasController extends Controller
     public function despesasRendas(){
         $this->checkLogin();
 
-        // dd($this->user_id);
+        $despesas   = Despesa::select('*')->where('user_id',Auth::user()->id)->get();
+        $rendas     = Renda::select('*')->where('user_id',Auth::user()->id)->get();
 
-        $despesas = Despesa::select('*')->where('user_id',Auth::user()->id)->get();
-        $rendas = Renda::select('*')->where('user_id',Auth::user()->id)->get();
-        // dd($rendas);
+        dd($despesas,$rendas);
 
         return view('site.despesas-rendas',compact('despesas','rendas'));
     }
