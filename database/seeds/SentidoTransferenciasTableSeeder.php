@@ -15,10 +15,10 @@ class SentidoTransferenciasTableSeeder extends Seeder
         DB::table('sentido_transferencias')->insert(
             [
                 [
-                    'desc' => 'pagamento',
+                    'desc' => 'recebimento',
                 ],
                 [
-                    'desc' => 'recebimento',
+                    'desc' => 'pagamento',
                 ],
             ]
         );
