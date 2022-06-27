@@ -75,7 +75,7 @@ Route::prefix('/user')->group(function() {
         Route::post('/update-rend/{id}', 'DespesasRendasController@updateRend')->name('user.update.renda');
 
         // função de deleção de despesa
-        Route::put('/delete-rend/{id}', 'DespesasRendasController@deleteRend')->name('user.delete.renda');
+        Route::get('/delete-rend/{id}', 'DespesasRendasController@deleteRend')->name('user.delete.renda');
 
 
     // tabela dos bancos e transferencias

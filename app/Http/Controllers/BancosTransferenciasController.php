@@ -33,16 +33,6 @@ class BancosTransferenciasController extends Controller
         return view ('site.bancos-transfer',compact('usuario','bancos','transferencias'));
     }
 
-
-
-
-
-
-
-
-
-
-
     public function createBanc(){
         $this->checkLogin();
 

@@ -73,30 +73,22 @@
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "A descrição da renda é obrigatório">
 						<span class="label-input100 ">Descrição da renda</span>
-						<input id="desc" class="input100" type="text " name="desc" placeholder="Insira o valor da renda" value="{{ isset($renda) ? $renda->desc : '' }}"> {{-- addicionar mask de reais --}}
+						<input id="desc" class="input100" type="text " name="desc" placeholder="Insira o valor da renda" value="{{ isset($renda) ? $renda->desc : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da renda é obrigatório">
 						<span class="label-input100 ">Valor da renda</span>
-						<input id="value" class="input100" type="text " name="value" placeholder="Insira o valor da renda" value="{{ isset($renda) ? $renda->user_id : '' }}"> {{-- addicionar mask de reais --}}
+						<input id="value" class="input100" type="text " name="value" placeholder="Insira o valor da renda" value="{{ isset($renda) ? $renda->value : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "A data inicial é obrigatória">
 						<span class="label-input100 ">Data Inicial</span>
-						<input id="ini_date" class="input100" type="text " name="ini_date" placeholder="Insira o valor da renda" value="{{ isset($renda) ? $renda->ini_date : '' }}"> {{-- addicionar mask de reais --}}
+						<input id="ini_date" class="input100" type="text " name="ini_date" placeholder="Insira o valor da renda" value="{{ isset($renda) ? $renda->ini_date : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
-
-
-					<div class="wrap-input100 m-b-23">
-						<span class="label-input100 ">Data Final</span>
-						<input id="end_date" class="input100" type="text " name="end_date" placeholder="Insira o valor da renda" value="{{ isset($renda) ? $renda->end_date : '' }}"> {{-- addicionar mask de reais --}}
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
-					</div>
-
                     <br>
                     <br>
 

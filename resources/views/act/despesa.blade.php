@@ -44,21 +44,21 @@
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome despesa é obrigatório">
                         <span class="label-input100 ">Descrição da despesa</span>
-                        <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a descrição da despesa" value="{{ isset($despesa) ? $despesa->desc : '' }}">
+                        <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a deFscrição da despesa" value="{{ isset($despesa) ? $despesa->desc : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
                     </div>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da despesa é obrigatório">
 						<span class="label-input100 ">Valor</span>
-						<input id="value" class="input100" type="text " name="value" placeholder="Insira o valor da despesa" value="{{ isset($despesa) ? $despesa->user_id : '' }}"> {{-- addicionar mask de reais --}}
+						<input id="value" class="input100" type="text " name="value" placeholder="Insira o valor da despesa" value="{{ isset($despesa) ? $despesa->value : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O tipo é obrigatório">
 						<span class="label-input100 ">Despesa fixa?</span>
                         <select class="select" name="fixed" id="fixed">
-                            <option value="1">Sim</option>
-                            <option value="0">Não</option>
+                            <option value="1" {{$despesa->fixed == 1 ? 'selected' : ''}}>Sim</option>
+                            <option value="0" {{$despesa->fixed == 0 ? 'selected' : ''}}>Não</option>
                         </select>
 					</div>
 
@@ -68,17 +68,11 @@
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "A data inicial é obrigatória">
-                    <span class="label-input100 "  for="end_date">Data Final</span>
-                    <input id="end_date" class="date input100" type="text " name="end_date" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($despesa) ? $despesa->end_date : '' }}">
-                    <span class="focus-input100" data-symbol="&#xf206;"></span>
-					</div>
-
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100" for="deadline">Prazo</span>
 						<select class="select" name="deadline" id="deadline">
                             @foreach($deadlines as $dl)
-                            <option value="{{$dl->id}}">{{$dl->desc}}</option>
+                            <option value="{{$dl->id}}" {{$despesa->deadline == $dl->id ? 'selected' : ''}}>{{$dl->desc}}</option>
                             @endforeach
                         </select>
 					</div>

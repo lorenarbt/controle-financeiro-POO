@@ -271,7 +271,9 @@
                           <td>
                             <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">{{$transf->desc}}</h6>
+                                <a href="{{route('user.edit.transferencia', ['id' => $transf->id])}}">
+                                    <h6 class="mb-0 text-sm">{{$transf->desc}}</h6>
+                                </a>
                               </div>
                             </div>
                           </td>
@@ -326,7 +328,9 @@
                         <i class="material-icons text-dark text-gradient">payments</i>
                       </span>
                       <div class="timeline-content">
-                        <h6 class="text-dark text-sm font-weight-bold mb-0">{{$banc->desc}}, Saldo R${{$banc->balance}}</h6>
+                        <a href="{{route('user.edit.banco', ['id' => $banc->id])}}">
+                            <h6 class="text-dark text-sm font-weight-bold mb-0">{{$banc->desc}}, Saldo R${{$banc->balance}}</h6>
+                        </a>
                         <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{$banc->type}}</p>
                       </div>
                     </div>
