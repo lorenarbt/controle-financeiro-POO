@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\User;
 use App\Despesa;
 use App\Renda;
 
@@ -13,6 +14,8 @@ class VisaoGeralController extends Controller
 {
     public function visaoGeral(){
         $this->checkLogin();
+
+        $usuario    = User::select('*')->where('id',Auth::user()->id)->get();
 
         $despesas   = Despesa::select('*')->where('user_id',Auth::user()->id)->get();
         $rendas     = Renda::select('*')->where('user_id',Auth::user()->id)->get();
@@ -152,6 +155,6 @@ class VisaoGeralController extends Controller
             ],
         ];
 
-        return view('site.visao-geral',compact('despesas', 'rendas', 'totais', 'ganhos_mensais', 'relevancia_despesas', 'categoria_despesas'));
+        return view('site.visao-geral',compact('usuario','despesas', 'rendas', 'totais', 'ganhos_mensais', 'relevancia_despesas', 'categoria_despesas'));
     }
 }
