@@ -54,7 +54,7 @@
     <link href="{{asset('css/main.css')}}" rel="stylesheet" type="text/css"/>
 <!--===============================================================================================-->
 
-@include('act.fonts')
+@include('layout.fonts')
 
 </head>
 
