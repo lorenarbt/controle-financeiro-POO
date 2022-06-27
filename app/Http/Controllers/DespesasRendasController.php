@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Despesa;
 use App\Renda;
@@ -20,10 +21,16 @@ class DespesasRendasController extends Controller
     public function despesasRendas(){
         $this->checkLogin();
 
-        $despesas   = Despesa::select('*')->where('user_id',Auth::user()->id)->get();
+        $despesas   = Despesa::join('categorias','categorias.id','despesas.type')
+                            ->join('prazos','prazos.id','despesas.deadline')
+                            ->select('despesas.*','categorias.desc as cat_desc','prazos.desc as praz_desc')
+                            ->where('user_id',Auth::user()->id)
+                            ->where(DB::raw("MONTH(ini_date)"),6)
+                            ->orderBy('ini_date')
+                            ->get();
+
         $rendas     = Renda::select('*')->where('user_id',Auth::user()->id)->get();
 
-        dd($despesas,$rendas);
 
         return view('site.despesas-rendas',compact('despesas','rendas'));
     }
