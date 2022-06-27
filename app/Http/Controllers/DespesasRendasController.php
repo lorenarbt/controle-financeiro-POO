@@ -76,7 +76,9 @@ class DespesasRendasController extends Controller
                                                                     ->groupBy(DB::raw("YEAR(date)"))
                                                                     ->get();
 
-        $saldo = ($soma_rendas_ano[0]->value + $soma_recebimentos_ano[0]->value) - ($soma_despesa_ano[0]->value + $soma_pagamentos_ano[0]->value);
+        $saldo = 0;
+        if(isset($soma_rendas_ano[0]) && isset($soma_recebimentos_ano[0]) && isset($soma_despesa_ano[0]) && isset($soma_pagamentos_ano[0]))
+            $saldo = ($soma_rendas_ano[0]->value + $soma_recebimentos_ano[0]->value) - ($soma_despesa_ano[0]->value + $soma_pagamentos_ano[0]->value);
 
         return view('site.despesas-rendas',compact('usuario','despesas','rendas','despesa_tot','renda_tot','saldo'));
     }
