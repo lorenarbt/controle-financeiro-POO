@@ -9,10 +9,11 @@ class Transferencia extends Model
     protected $fillable = [
         'id',
         'user_id',
+        'desc',
         'bank_id',
+        'way',
         'value',
-        'ini_month',
+        'date',
         'method',
-        'receiver'
     ];
 }

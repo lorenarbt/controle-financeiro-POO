@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
 
     <title>Controle Financeiro - Dashboard</title>
 
@@ -413,25 +413,25 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Porcentagem por Categorias</h6>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold">Alimentação <span id="alimentacao_text" class="float-right">{{$categorias_despesas['alimentacao']}}%</span></h4>
+                                    <h4 class="small font-weight-bold">Alimentação <span id="alimentacao_text" class="float-right">{{$categoria_despesas['alimentacao']}}%</span></h4>
                                     <div class="progress mb-4">
-                                        <div id="alimentacao_bar" class="progress-bar bg-danger" role="progressbar" style="width: {{$categorias_despesas['alimentacao']}}%; height: 100%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div id="alimentacao_bar" class="progress-bar bg-danger" role="progressbar" style="width: {{$categoria_despesas['alimentacao']}}%; height: 100%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Lazer <span id="lazer_text" class="float-right">{{$categorias_despesas['lazer']}}%</span></h4>
+                                    <h4 class="small font-weight-bold">Lazer <span id="lazer_text" class="float-right">{{$categoria_despesas['lazer']}}%</span></h4>
                                     <div class="progress mb-4">
-                                        <div id="lazer_bar" class="progress-bar bg-warning" role="progressbar" style="width: {{$categorias_despesas['lazer']}}%; height: 100%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div id="lazer_bar" class="progress-bar bg-warning" role="progressbar" style="width: {{$categoria_despesas['lazer']}}%; height: 100%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Saúde <span id="saude_text" class="float-right">{{$categorias_despesas['saude']}}%</span></h4>
+                                    <h4 class="small font-weight-bold">Saúde <span id="saude_text" class="float-right">{{$categoria_despesas['saude']}}%</span></h4>
                                     <div class="progress mb-4">
-                                        <div id="saude_bar" class="progress-bar" role="progressbar" style="width: {{$categorias_despesas['saude']}}%; height: 100%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div id="saude_bar" class="progress-bar" role="progressbar" style="width: {{$categoria_despesas['saude']}}%; height: 100%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Educação <span id="educacao_text" class="float-right">{{$categorias_despesas['educacao']}}%</span></h4>
+                                    <h4 class="small font-weight-bold">Educação <span id="educacao_text" class="float-right">{{$categoria_despesas['educacao']}}%</span></h4>
                                     <div class="progress mb-4">
-                                        <div id="educacao_bar" class="progress-bar bg-info" role="progressbar" style="width: {{$categorias_despesas['educacao']}}%; height: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div id="educacao_bar" class="progress-bar bg-info" role="progressbar" style="width: {{$categoria_despesas['educacao']}}%; height: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Transporte <span id="transporte_text" class="float-right">{{$categorias_despesas['transporte']}}%</span></h4>
+                                    <h4 class="small font-weight-bold">Transporte <span id="transporte_text" class="float-right">{{$categoria_despesas['transporte']}}%</span></h4>
                                     <div class="progress mb-4">
-                                        <div id="transporte_bar" class="progress-bar bg-success" role="progressbar" style="width: {{$categorias_despesas['transporte']}}%; height: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div id="transporte_bar" class="progress-bar bg-success" role="progressbar" style="width: {{$categoria_despesas['transporte']}}%; height: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>

@@ -15,38 +15,20 @@ class CategoriasTableSeeder extends Seeder
         DB::table('categorias')->insert(
             [
                 [
-                    'user_id' => '1',
                     'desc' => 'alimentação',
                 ],
                 [
-                    'user_id' => '1',
                     'desc' => 'transporte',
                 ],
                 [
-                    'user_id' => '1',
                     'desc' => 'lazer',
                 ],
                 [
-                    'user_id' => '1',
                     'desc' => 'educação',
                 ],
                 [
-                    'user_id' => '2',
-                    'desc' => 'alimentação',
+                    'desc' => 'saude',
                 ],
-                [
-                    'user_id' => '2',
-                    'desc' => 'transporte',
-                ],
-                [
-                    'user_id' => '2',
-                    'desc' => 'lazer',
-                ],
-                [
-                    'user_id' => '2',
-                    'desc' => 'educação',
-                ],
-
             ]
         );
     }

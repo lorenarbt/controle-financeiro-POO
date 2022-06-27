@@ -18,7 +18,8 @@ class CreateTransferenciaTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('desc');
-            $table->boolean('way');
+            $table->unsignedInteger('way');
+            $table->foreign('way')->references('id')->on('sentido_transferencias');
             $table->double('value',8,2);
             $table->unsignedInteger('bank_id');
             $table->foreign('bank_id')->references('id')->on('bancos');

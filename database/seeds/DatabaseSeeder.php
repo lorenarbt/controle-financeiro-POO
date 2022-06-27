@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RelevanciasTableSeeder::class);
         $this->call(DespesasTableSeeder::class);
         $this->call(BancosTableSeeder::class);
+        $this->call(SentidoTransferenciasTableSeeder::class);
         $this->call(TransferenciasTableSeeder::class);
     }
 }

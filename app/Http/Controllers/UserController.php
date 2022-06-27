@@ -44,7 +44,7 @@ class UserController extends Controller
             'password.required'=>'A senha é obrigatória'
         ]);
         if (Auth::attempt(['email'=>$request->email, 'password'=> $request->password])){
-            return redirect('/user');
+            return redirect('/user/visao-geral');
         }else{
             return redirect()->back()->with('danger','E-mail ou senha inválida');
         }
