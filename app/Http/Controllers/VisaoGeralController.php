@@ -112,8 +112,13 @@ class VisaoGeralController extends Controller
         }
 
         // cálculos de procentagem para relevância das despesas
-        $superfluo = $relevancia_despesas[0]->tot/$tot_relevancias_despesas[0]->tot*100;
-        $essencial = $relevancia_despesas[1]->tot/$tot_relevancias_despesas[0]->tot*100;
+        if(!empty($relevancia_despesas) && $tot_relevancias_despesas[0]->tot != 0){
+            $superfluo = $relevancia_despesas[0]->tot/$tot_relevancias_despesas[0]->tot*100;
+            $essencial = $relevancia_despesas[1]->tot/$tot_relevancias_despesas[0]->tot*100;
+        } else {
+            $superfluo = 0;
+            $essencial = 0;
+        }
 
         // cálculos de procentagem para categoria das despesas
         $alimentacao    = isset($categoria_despesas[0]) ? $categoria_despesas[0]->tot/$tot_categorias_despesas[0]->tot*100 : 0;
@@ -135,14 +140,14 @@ class VisaoGeralController extends Controller
                                 'transporte'    => number_format($transporte,2)
                               ];
 
-        $total_ganhos_mes = $soma_rendas_meses[6]->total_ganhos;
+
         $totais = [
             'ganhos' => [
-                'mes_atual' => $array_ganhos[6],
+                'mes_atual' => isset($array_ganhos) ? $array_ganhos[6] : 0,
                 'ano_atual' => $total_ganhos_ano,
             ],
             'gastos' => [
-                'mes_atual' => $array_gastos[6],
+                'mes_atual' => isset($array_gastos) ? $array_gastos[6] : 0,
                 'ano_atual' => $total_gastos_ano,
             ],
         ];
