@@ -92,6 +92,7 @@
                 <h6 class="collapse-header">Login Screens:</h6>
                 <a class="collapse-item" href="/login">Login</a>
                 <a class="collapse-item" href="/register">Registro</a>
+                <a class="collapse-item" href="/logout">Logout</a>
             </div>
         </div>
     </li>

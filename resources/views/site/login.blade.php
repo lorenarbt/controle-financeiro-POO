@@ -77,7 +77,8 @@
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
                                                 <label class="custom-control-label" for="customCheck">Lembrar-me</label>
                                             </div> --}}
-                                        </div>
+                                        {{-- </div> --}}
+
                                         <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                         {{-- <a href="/" class="btn btn-primary btn-user btn-block">
                                             Login
