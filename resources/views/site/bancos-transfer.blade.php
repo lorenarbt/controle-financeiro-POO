@@ -235,6 +235,10 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Bancos e Transferências</h1>
+            <a href="{{route('user.create.banco')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-landmark"></i> Inserir Banco</a>
+            <a href="{{route('user.create.transferencia')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="background-color: #36b9cc; color: #fff;">
+                <i class="fas fa-donate"></i> Inserir Transferência</a>
         </div>
 
         <!-- Tabela de Tranferencias -->
