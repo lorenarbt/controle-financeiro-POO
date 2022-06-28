@@ -45,18 +45,16 @@
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome despesa é obrigatório">
                         <span class="label-input100 ">Descrição da despesa</span>
                         <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a descrição da despesa" value="{{ isset($despesa) ? $despesa->desc : '' }}">
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
                     </div>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da despesa é obrigatório">
 						<span class="label-input100 ">Valor</span>
 						<input id="value" class="input100" type="text " name="value" placeholder="Insira o valor da despesa" value="{{ isset($despesa) ? $despesa->value : '' }}">
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O tipo é obrigatório">
 						<span class="label-input100 ">Despesa fixa?</span>
-                        <select class="select" name="fixed" id="fixed">
+                        <select  name="fixed" id="fixed">
                             <option value="1" {{ isset($despesa) && $despesa->fixed == 1 ? 'selected' : ''}}>Sim</option>
                             <option value="0" {{ isset($despesa) && $despesa->fixed == 0 ? 'selected' : ''}}>Não</option>
                         </select>
@@ -65,12 +63,11 @@
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "A data inicial é obrigatória">
                     <span class="label-input100 "  for="ini_date">Data Inicial</span>
                     <input id="ini_date" class="date input100" type="text " name="ini_date" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($despesa) ? $despesa->ini_date : '' }}">
-                    <span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100" for="deadline">Prazo</span>
-						<select class="select" name="deadline" id="deadline">
+						<select  name="deadline" id="deadline">
                             @foreach($deadlines as $dl)
                             <option value="{{$dl->id}}" {{ isset($despesa) && $despesa->deadline == $dl->id ? 'selected' : ''}}>{{$dl->desc}}</option>
                             @endforeach
@@ -79,7 +76,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100" for="type">Categoria</span>
-						<select class="select" name="type" id="type">
+						<select  name="type" id="type">
                             @foreach($types as $tp)
                             <option value="{{$tp->id}}" {{ isset($despesa) && $despesa->type == $tp->id ? 'selected' : ''}}>{{$tp->desc}}</option>
                             @endforeach
@@ -88,7 +85,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100" for="relevance">Relevância</span>
-						<select class="select" name="relevance" id="relevance">
+						<select  name="relevance" id="relevance">
                             @foreach($relevances as $rl)
                             <option value="{{$rl->id}}" {{ isset($despesa) && $despesa->relevance == $rl->id ? 'selected' : ''}}>{{$rl->desc}}</option>
                             @endforeach

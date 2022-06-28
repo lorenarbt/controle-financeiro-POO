@@ -44,22 +44,19 @@
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome banco é obrigatório">
                         <span class="label-input100 ">Descrição do banco</span>
                         <input id="desc" name="desc" class="input100" type="text" placeholder="Insira a descrição da banco" value="{{ isset($banco) ? $banco->desc : '' }}">
-						{{-- <span class="focus-input100" data-symbol="&#xf044;"></span> --}}
                     </div>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da banco é obrigatório">
 						<span class="label-input100 ">Saldo</span>
 						<input id="balance" name="balance" class="input100" type="text" placeholder="Insira o valor da banco" value="{{ isset($banco) ? $banco->balance : '' }}">
-						{{-- <span class="focus-input100" data-symbol="&#xf4b9;"></span> --}}
 					</div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O tipo é obrigatório">
 						<span class="label-input100 ">Tipo de Conta</span>
-                        <select class="select" name="type" id="type">
+                        <select  name="type" id="type">
                             <option value="1" {{ isset($banco) && $banco->type == 1 ? 'selected' : ''}}>poupança</option>
                             <option value="2" {{ isset($banco) && $banco->type == 2 ? 'selected' : ''}}>corrente</option>
                         </select>
-                        {{-- <span class="focus-input100" data-symbol="&#xf66f;"></span> --}}
 					</div>
 
                     <br>
