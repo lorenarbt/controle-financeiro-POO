@@ -395,7 +395,7 @@
               <div class="card">
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">weekend</i>
+                    <i class="material-icons opacity-10">attach_money</i>
                   </div>
                   <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">Saldo Atual</p>
@@ -412,7 +412,7 @@
               <div class="card">
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">person</i>
+                    <i class="material-icons opacity-10">attach_money</i>
                   </div>
                   <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">Renda do Mês</p>
@@ -429,7 +429,7 @@
               <div class="card">
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">person</i>
+                    <i class="material-icons opacity-10">attach_money</i>
                   </div>
                   <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">Despesa do Mês</p>
@@ -446,7 +446,7 @@
               <div class="card">
                 <div class="card-header p-3 pt-2">
                   <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">weekend</i>
+                    <i class="material-icons opacity-10">attach_money</i>
                   </div>
                   <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">Renda Restante do Mês</p>
@@ -559,6 +559,7 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fixa</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Prazo</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Categoria</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ação</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -596,6 +597,10 @@
                             <span class="text-xs font-weight-bold"> {{$desp->cat_desc}} </span>
                           </td>
 
+                          <td class="align-middle text-center text-sm">
+                            <a href="{{route('user.delete.despesa', ['id' => $desp->id])}}"><i class="material-icons opacity-10">delete</i></a>
+                          </td>
+
                         </tr>
 
                         @endforeach
@@ -626,6 +631,7 @@
                         <h6 class="text-dark text-sm font-weight-bold mb-0">
                             <a href="{{route('user.edit.renda', ['id' => $rend->id])}}">R${{$rend->value}}</a>, {{$rend->desc}}</h6>
                         <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{$rend->ini_date}}</p>
+                        <a href="{{route('user.delete.renda', ['id' => $rend->id])}}"><i class="material-icons opacity-10">delete</i></a>
                       </div>
                     </div>
 
@@ -1026,6 +1032,24 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="js/material-dashboard.min.js?v=3.0.3"></script>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+
+  <!-- Page level plugins -->
+  <script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+
+  <!-- Page level custom scripts -->
+
+  <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
+  <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
 </body>
 
 </html>

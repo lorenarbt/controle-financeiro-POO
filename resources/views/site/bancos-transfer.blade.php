@@ -265,6 +265,7 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Método</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Data</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Banco</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ação</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -304,6 +305,10 @@
                             <span class="text-xs font-weight-bold"> {{$transf->bank}} </span>
                           </td>
 
+                          <td class="align-middle text-center text-sm">
+                            <a href="{{route('user.delete.transferencia', ['id' => $transf->id])}}"><i class="material-icons opacity-10">delete</i></a>
+                          </td>
+
                         </tr>
 
                         @endforeach
@@ -336,6 +341,7 @@
                             <h6 class="text-dark text-sm font-weight-bold mb-0">{{$banc->desc}}, Saldo R${{$banc->balance}}</h6>
                         </a>
                         <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{$banc->type}}</p>
+                        <a href="{{route('user.delete.banco', ['id' => $banc->id])}}"><i class="material-icons opacity-10">delete</i></a>
                       </div>
                     </div>
 
