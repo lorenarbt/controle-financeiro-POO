@@ -1774,22 +1774,56 @@ p {
 .contact-form .main-btn {
   border-radius: 5px; }
 
-.select{
-  flex:1;
-  padding:0 .5em;
-  color: #fff;
-  cursor: pointer;
+  /* SELECT FORMS */
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance:none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow:none;
+    border:0 !important;
+    background: #4E73DF !important;
+    background-image: none;
+    flex:1;
+    padding:0 .5em;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'OpenSans', sans-serif;
 }
+
+select::-ms-expand{
+display:none;
+}
+
+.select{
+    position: relative;
+    display:flex;
+    width: 20em;
+    height: 3em;
+    line-height:3;
+    background:  #4E73DF !important;
+    overflow: hidden;
+    border-radius: .25em;
+
+}
+
 .select::after{
     content: '\25BC';
     position: absolute;
     top: 0;
     right: 0;
     padding: 0 lem;
-    background: #000;
+    background:#164aa9 !important;
     cursor: pointer;
     pointer-events:none;
     transition:.25s all ease;
+}
+.select:hover::after{
+    color: #23b499;
+
 }
 
 /*===========================

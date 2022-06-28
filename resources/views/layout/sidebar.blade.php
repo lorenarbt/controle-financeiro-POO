@@ -15,18 +15,18 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="{{route('user.visao-geral')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="	fas fa-chart-line"></i>
             <span>Visão geral</span></a>
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="{{route('user.despesas-rendas')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-hand-holding-usd"></i>
             <span>Despesas e rendas</span></a>
     </li>
 
     <li class="nav-item active">
         <a class="nav-link" href="{{route('user.bancos-transfer')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-landmark"></i>
             <span>Bancos e Transferências</span></a>
     </li>
 
@@ -42,14 +42,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
+            <i class="	fas fa-bullhorn"></i>
+            <span>Sobre</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
+                <h6 class="collapse-header">Página Inicial</h6>
+                <a class="collapse-item" href="/">Landing Page</a>
             </div>
         </div>
     </li>
@@ -59,16 +58,16 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
+            <span>Registros</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
+                <h6 class="collapse-header">Inserir</h6>
+                <a class="collapse-item" href="{{route('user.create.despesa')}}">Despesa</a>
+                <a class="collapse-item" href="{{route('user.create.renda')}}">Renda</a>
+                <a class="collapse-item" href="{{route('user.create.transferencia')}}">Transferencia</a>
+                <a class="collapse-item" href="{{route('user.create.banco')}}">Banco</a>
             </div>
         </div>
     </li>
@@ -78,7 +77,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Addons
+        Complementos
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -86,27 +85,15 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <span>Páginas</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Login Screens:</h6>
                 <a class="collapse-item" href="/login">Login</a>
-                <a class="collapse-item" href="/register">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
+                <a class="collapse-item" href="/register">Registro</a>
             </div>
         </div>
-    </li>
-
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
     </li>
 
     <!-- Nav Item - Tables -->

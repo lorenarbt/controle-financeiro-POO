@@ -45,20 +45,20 @@
                         <span class="label-input100 ">Descrição da transferencia</span>
                         <br>
                         <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a descrição da transferencia" value="{{ isset($transferencia) ? $transferencia->desc : '' }}">
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
+						{{-- <span class="focus-input100" data-symbol="&#xf206;"></span> --}}
                     </div>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "O valor da transferencia é obrigatório">
 						<span class="label-input100 ">Valor</span>
 						<input id="value" class="input100" type="text " name="value" placeholder="Insira o nvalor da transferencia" value="{{ isset($transferencia) ? $transferencia->value : '' }}">
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
+						{{-- <span class="focus-input100" data-symbol="&#xf206;"></span> --}}
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100" for="bank_id">Banco</span>
 						<select class="select" name="bank_id" id="bank_id">
                             @foreach($bancos as $bk)
-                            <option value="{{$bk->id}}" {{$transferencia->bank_id == $bk->id ? 'selected' : ''}}>{{$bk->desc}}</option>
+                            <option value="{{$bk->id}}" {{ isset ($transferencia) && $transferencia->bank_id == $bk->id ? 'selected' : ''}}>{{$bk->desc}}</option>
                             @endforeach
                         </select>
 					</div>
@@ -66,26 +66,26 @@
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "A data inicial é obrigatória">
                         <span class="label-input100 "  for="date">Data</span>
                         <input id="date" class="date input100" type="text " name="date" class="" data-mask="00/00/0000" maxlength="10" value="{{ isset($transferencia) ? $transferencia->date : '' }}">
-                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                        {{-- <span class="focus-input100" data-symbol="&#xf206;"></span> --}}
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O tipo é obrigatório">
 						<span class="label-input100 ">Sentido</span>
                         <select class="select" name="way" id="way">
-                            <option value="1" {{$transferencia->way == 1 ? 'selected' : ''}}>Recebimento</option>
-                            <option value="2" {{$transferencia->way == 2 ? 'selected' : ''}}>Pagamento</option>
+                            <option value="1" {{ isset ($transferencia) && $transferencia->way == 1 ? 'selected' : ''}}>Recebimento</option>
+                            <option value="2" {{ isset ($transferencia) && $transferencia->way == 2 ? 'selected' : ''}}>Pagamento</option>
                         </select>
 					</div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O tipo é obrigatório">
 						<span class="label-input100 ">Método de Pagamento</span>
                         <select class="select" name="method" id="method">
-                            <option value="1" {{$transferencia->method == 1 ? 'selected' : ''}}>Pix</option>
-                            <option value="2" {{$transferencia->method == 2 ? 'selected' : ''}}>TED</option>
-                            <option value="3" {{$transferencia->method == 3 ? 'selected' : ''}}>DOC</option>
-                            <option value="4" {{$transferencia->method == 4 ? 'selected' : ''}}>Boleto</option>
-                            <option value="5" {{$transferencia->method == 5 ? 'selected' : ''}}>Cartão Crédito</option>
-                            <option value="6" {{$transferencia->method == 6 ? 'selected' : ''}}>Cartão Débito</option>
+                            <option value="1" {{ isset ($transferencia) && $transferencia->method == 1 ? 'selected' : ''}}>Pix</option>
+                            <option value="2" {{ isset ($transferencia) && $transferencia->method == 2 ? 'selected' : ''}}>TED</option>
+                            <option value="3" {{ isset ($transferencia) && $transferencia->method == 3 ? 'selected' : ''}}>DOC</option>
+                            <option value="4" {{ isset ($transferencia) && $transferencia->method == 4 ? 'selected' : ''}}>Boleto</option>
+                            <option value="5" {{ isset ($transferencia) && $transferencia->method == 5 ? 'selected' : ''}}>Cartão Crédito</option>
+                            <option value="6" {{ isset ($transferencia) && $transferencia->method == 6 ? 'selected' : ''}}>Cartão Débito</option>
                         </select>
 					</div>
                     <br>
