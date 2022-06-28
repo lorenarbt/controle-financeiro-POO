@@ -76,6 +76,24 @@
                             @endforeach
                         </select>
 					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<span class="label-input100" for="type">Categoria</span>
+						<select class="select" name="type" id="type">
+                            @foreach($types as $tp)
+                            <option value="{{$tp->id}}" {{ isset($despesa) && $despesa->type == $tp->id ? 'selected' : ''}}>{{$tp->desc}}</option>
+                            @endforeach
+                        </select>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<span class="label-input100" for="relevance">Relevância</span>
+						<select class="select" name="relevance" id="relevance">
+                            @foreach($relevances as $rl)
+                            <option value="{{$rl->id}}" {{ isset($despesa) && $despesa->relevance == $rl->id ? 'selected' : ''}}>{{$rl->desc}}</option>
+                            @endforeach
+                        </select>
+					</div>
                     <br>
                     <br>
 

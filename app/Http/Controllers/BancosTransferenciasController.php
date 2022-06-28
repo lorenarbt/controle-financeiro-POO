@@ -14,20 +14,31 @@ use App\MetodoPagamento;
 
 class BancosTransferenciasController extends Controller
 {
+    private $user_id;
+
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $this->user_id = Auth::user()->id;
+
+            return $next($request);
+        });
+    }
 
     public function bancosTransferencias(){
         $this->checkLogin();
 
-        $user_id = Auth::user()->id;
-
-        $usuario            = User::select('*')->where('id',$user_id)->get();
+        $usuario            = User::select('*')->where('id',$this->user_id)->get();
         $bancos             = Banco::join('tipo_contas','tipo_contas.id','bancos.type')
-                                    ->select('bancos.*','tipo_contas.desc as type')->where('user_id',$user_id)->get();
+                                    ->select('bancos.*','tipo_contas.desc as type')
+                                    ->where('bancos.user_id',$this->user_id)
+                                    ->get();
+
         $transferencias     = Transferencia::join('bancos','bancos.id','transferencias.bank_id')
                                             ->join('metodo_pagamentos','metodo_pagamentos.id','transferencias.method')
                                             ->join('sentido_transferencias','sentido_transferencias.id','transferencias.way')
                                             ->select('transferencias.*','sentido_transferencias.desc as way','metodo_pagamentos.desc as method','bancos.desc as bank')
-                                            ->where('transferencias.user_id',$user_id)
+                                            ->where('transferencias.user_id',$this->user_id)
                                             ->get();
 
         return view ('site.bancos-transfer',compact('usuario','bancos','transferencias'));
@@ -54,7 +65,7 @@ class BancosTransferenciasController extends Controller
         $this->checkLogin();
 
         $data = [
-            'user_id' => Auth::user()->id,
+            'user_id' => $this->user_id,
             'desc' => $req->desc,
             'balance' => str_replace(',', '.', $req->balance),
             'type' => $req->type
@@ -62,14 +73,14 @@ class BancosTransferenciasController extends Controller
 
         Banco::create($data);
 
-        return redirect('user/bancos');
+        return redirect('user/bancos-transfer');
     }
 
     public function updateBanc(Request $req, $id){
         $this->checkLogin();
 
         $data = [
-            'user_id' => Auth::user()->id,
+            'user_id' => $this->user_id,
             'desc' => $req->desc,
             'balance' => str_replace(',', '.', $req->balance),
             'type' => $req->type
@@ -77,7 +88,7 @@ class BancosTransferenciasController extends Controller
 
         Banco::find($id)->update($data);
 
-        return redirect('user/bancos');
+        return redirect('user/bancos-transfer');
     }
 
     public function deleteBanc($id){
@@ -85,17 +96,13 @@ class BancosTransferenciasController extends Controller
 
         Banco::find($id)->delete();
 
-        return redirect('user/bancos');
+        return redirect('user/bancos-transfer');
     }
-
-
-
-
 
     public function createTransf(){
         $this->checkLogin();
 
-        $bancos = Banco::select('*')->where('user_id',Auth::user()->id)->get();
+        $bancos = Banco::select('*')->where('user_id',$this->user_id)->get();
         $metodoPag = MetodoPagamento::all();
 
         return view('act.transferencia',compact('bancos','metodoPag'));
@@ -104,7 +111,7 @@ class BancosTransferenciasController extends Controller
     public function editTransf($id){
         $this->checkLogin();
 
-        $bancos = Banco::select('*')->where('user_id',Auth::user()->id)->get();
+        $bancos = Banco::select('*')->where('user_id',$this->user_id)->get();
         $transferencia = Transferencia::find($id);
         $metodoPag = MetodoPagamento::all();
 
@@ -115,34 +122,36 @@ class BancosTransferenciasController extends Controller
         $this->checkLogin();
 
         $data = [
-            'user_id' => Auth::user()->id,
+            'user_id' => $this->user_id,
             'desc' => $req->desc,
             'way' => $req->way,
-            'value' => str_replace(',', '.', $req->balance),
+            'value' => str_replace(',', '.', $req->value),
+            'date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->date))),
             'bank_id' => $req->bank_id,
             'method' => $req->method
         ];
 
         Transferencia::create($data);
 
-        return redirect('user/transferencias');
+        return redirect('user/bancos-transfer');
     }
 
     public function updateTransf(Request $req, $id){
         $this->checkLogin();
 
         $data = [
-            'user_id' => Auth::user()->id,
+            'user_id' => $this->user_id,
             'desc' => $req->desc,
             'way' => $req->way,
             'value' => str_replace(',', '.', $req->value),
+            'date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->date))),
             'bank_id' => $req->bank_id,
             'method' => $req->method
         ];
 
         Transferencia::find($id)->update($data);
 
-        return redirect('user/transferencias');
+        return redirect('user/bancos-transfer');
     }
 
     public function deleteTransf($id){
@@ -150,6 +159,6 @@ class BancosTransferenciasController extends Controller
 
         Transferencia::find($id)->delete();
 
-        return redirect('user/transferencias');
+        return redirect('user/bancos-transfer');
     }
 }

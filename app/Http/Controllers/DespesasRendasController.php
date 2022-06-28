@@ -10,29 +10,36 @@ use App\User;
 use App\Despesa;
 use App\Renda;
 use App\Prazo;
+use App\Relevancia;
+use App\Categoria;
 
 class DespesasRendasController extends Controller
 {
     private $user_id;
 
     public function __construct(){
-        // $this->user_id = Auth::user()->id;
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            $this->user_id = Auth::user()->id;
+
+            return $next($request);
+        });
     }
 
     public function despesasRendas(){
         $this->checkLogin();
 
-        $usuario    = User::select('*')->where('id',Auth::user()->id)->get();
+        $usuario    = User::select('*')->where('id',$this->user_id)->get();
 
         $despesas   = Despesa::join('categorias','categorias.id','despesas.type')
                             ->join('prazos','prazos.id','despesas.deadline')
                             ->select('despesas.*','categorias.desc as cat_desc','prazos.desc as praz_desc')
-                            ->where('user_id',Auth::user()->id)
+                            ->where('user_id',$this->user_id)
                             ->where(DB::raw("MONTH(ini_date)"),6)
                             ->orderBy('ini_date')
                             ->get();
 
-        $rendas     = Renda::select('*')->where('user_id',Auth::user()->id)
+        $rendas     = Renda::select('*')->where('user_id',$this->user_id)
                                         ->where(DB::raw("MONTH(ini_date)"),6)
                                         ->get();
 
@@ -48,14 +55,14 @@ class DespesasRendasController extends Controller
 
         // query para cards gastos, realiza agrupamento de soma por mês
         $soma_despesa_ano            = DB::table("despesas")->select(DB::raw("YEAR(ini_date) as year"),DB::raw("(SUM(value)) as value"))
-                                                                ->where('user_id',Auth::user()->id)
+                                                                ->where('user_id',$this->user_id)
                                                                 ->orderBy(DB::raw("YEAR(ini_date)"))
                                                                 ->groupBy(DB::raw("YEAR(ini_date)"))
                                                                 ->get();
 
         // query para cards gastos, realiza agrupamento de soma por mês
         $soma_pagamentos_ano          = DB::table("transferencias")->select(DB::raw("YEAR(date) as year"),DB::raw("(SUM(value)) as value"))
-                                                                    ->where('user_id',Auth::user()->id)
+                                                                    ->where('user_id',$this->user_id)
                                                                     ->where('way',2)
                                                                     ->orderBy(DB::raw("YEAR(date)"))
                                                                     ->groupBy(DB::raw("YEAR(date)"))
@@ -63,14 +70,14 @@ class DespesasRendasController extends Controller
 
         // query para gráfico de linha, realiza agrupamento de soma por mês
         $soma_rendas_ano             = DB::table("rendas")->select(DB::raw("YEAR(ini_date) as year"),DB::raw("(SUM(value)) as value"))
-                                                            ->where('user_id',Auth::user()->id)
+                                                            ->where('user_id',$this->user_id)
                                                             ->orderBy(DB::raw("YEAR(ini_date)"))
                                                             ->groupBy(DB::raw("YEAR(ini_date)"))
                                                             ->get();
 
         // query para gráfico de linha, realiza agrupamento de soma por mês
         $soma_recebimentos_ano      = DB::table("transferencias")->select(DB::raw("YEAR(date) as year"),DB::raw("(SUM(value)) as value"))
-                                                                    ->where('user_id',Auth::user()->id)
+                                                                    ->where('user_id',$this->user_id)
                                                                     ->where('way',1)
                                                                     ->orderBy(DB::raw("YEAR(date)"))
                                                                     ->groupBy(DB::raw("YEAR(date)"))
@@ -87,8 +94,10 @@ class DespesasRendasController extends Controller
         $this->checkLogin();
 
         $deadlines = Prazo::all();
+        $types     = Categoria::all();
+        $relevances= Relevancia::all();
 
-        return view('act.despesa',compact('deadlines'));
+        return view('act.despesa',compact('deadlines','types','relevances'));
     }
 
     public function editDesp($id){
@@ -96,23 +105,24 @@ class DespesasRendasController extends Controller
 
         $despesa = Despesa::find($id);
         $deadlines = Prazo::all();
+        $types     = Categoria::all();
+        $relevances= Relevancia::all();
 
-        return view('act.despesa',compact('despesa','deadlines'));
+        return view('act.despesa',compact('despesa','deadlines','types','relevances'));
     }
 
     public function insertDesp(Request $req){
         $this->checkLogin();
 
         $data = [
-            'user_id' => Auth::user()->id,
+            'user_id' => $this->user_id,
             'desc' => $req->desc,
+            'value' => str_replace(',', '.', $req->value),
             'fixed' => (bool)$req->fixed,
-            'ini_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_month))),
-            'end_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->end_month))),
+            'ini_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_date))),
             'deadline' => $req->deadline,
             'relevance' => $req->relevance,
             'type' => $req->type,
-            'value' => str_replace(',', '.', $req->value),
         ];
 
         Despesa::create($data);
@@ -124,12 +134,14 @@ class DespesasRendasController extends Controller
         $this->checkLogin();
 
         $data = [
-            'user_id' => Auth::user()->id,
+            'user_id' => $this->user_id,
             'desc' => $req->desc,
             'value' => str_replace(',', '.', $req->value),
             'fixed' => (bool)$req->fixed,
-            'ini_month' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_month))),
-            'deadline' => $req->deadline
+            'ini_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_date))),
+            'deadline' => $req->deadline,
+            'relevance' => $req->relevance,
+            'type' => $req->type,
         ];
 
         Despesa::find($id)->update($data);
@@ -163,11 +175,10 @@ class DespesasRendasController extends Controller
         $this->checkLogin();
 
         $data = [
-            'user_id' => Auth::user()->id,
+            'user_id' => $this->user_id,
             'desc' => $req->desc,
             'value' => str_replace(',', '.', $req->value),
-            'ini_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_date))),
-            'end_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->end_date)))
+            'ini_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_date)))
         ];
 
         Renda::create($data);
@@ -179,11 +190,10 @@ class DespesasRendasController extends Controller
         $this->checkLogin();
 
         $data = [
-            'user_id' => Auth::user()->id,
+            'user_id' => $this->user_id,
             'desc' => $req->desc,
             'value' => str_replace(',', '.', $req->value),
             'ini_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->ini_date))),
-            'end_date' => date('Y-m-d', strtotime(str_replace('/', '-', $req->end_date)))
         ];
 
         Renda::find($id)->update($data);
