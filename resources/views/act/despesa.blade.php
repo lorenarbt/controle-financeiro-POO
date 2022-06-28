@@ -44,7 +44,7 @@
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome despesa é obrigatório">
                         <span class="label-input100 ">Descrição da despesa</span>
-                        <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a deFscrição da despesa" value="{{ isset($despesa) ? $despesa->desc : '' }}">
+                        <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a descrição da despesa" value="{{ isset($despesa) ? $despesa->desc : '' }}">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
                     </div>
 

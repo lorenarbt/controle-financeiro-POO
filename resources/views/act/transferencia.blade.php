@@ -41,7 +41,7 @@
 				<form class="login100-form validate-form" action="{{ isset($transferencia) ? route('user.update.transferencia',['id'=>$transferencia->id]) : route('user.insert.transferencia') }}" method="POST">
                     @csrf
 
-                    <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome transferencia é obrigatório">
+                    <div class="wrap-input100 validate-input m-b-23" data-validate = "O nome da transferencia é obrigatório">
                         <span class="label-input100 ">Descrição da transferencia</span>
                         <br>
                         <input id="desc" class="input100" name="desc" type="text" placeholder="Insira a descrição da transferencia" value="{{ isset($transferencia) ? $transferencia->desc : '' }}">
